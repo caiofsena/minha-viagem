@@ -1,0 +1,97 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from "react-leaflet";
+import L from "leaflet";
+import type { Place, Category } from "@minha-viagem/shared";
+import { CATEGORY_COLORS } from "@minha-viagem/shared";
+
+const defaultIcon = L.icon({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+});
+
+function createColoredIcon(category: Category) {
+  const color = CATEGORY_COLORS[category];
+  return L.divIcon({
+    className: "custom-marker",
+    html: `<div style="
+      width: 24px; height: 24px; 
+      border-radius: 50%; 
+      background: ${color}; 
+      border: 3px solid white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    "></div>`,
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+  });
+}
+
+interface MapClickHandlerProps {
+  onMapClick: (lat: number, lng: number) => void;
+}
+
+function MapClickHandler({ onMapClick }: MapClickHandlerProps) {
+  useMapEvents({
+    click(e) {
+      onMapClick(e.latlng.lat, e.latlng.lng);
+    },
+  });
+  return null;
+}
+
+function FlyToCenter({ center }: { center: [number, number] }) {
+  const map = useMap();
+  useEffect(() => {
+    map.flyTo(center, map.getZoom());
+  }, [center, map]);
+  return null;
+}
+
+interface MapProps {
+  places: Place[];
+  onClickMarker?: (place: Place) => void;
+  onMapClick: (lat: number, lng: number) => void;
+  center?: [number, number];
+}
+
+export function Map({ places, onClickMarker, onMapClick, center }: MapProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="h-full w-full bg-zinc-100 animate-pulse rounded-lg" />;
+  }
+
+  return (
+    <MapContainer
+      center={center || [-15.7934, -47.8823]}
+      zoom={center ? 14 : 4}
+      className="h-full w-full rounded-lg"
+      scrollWheelZoom={true}
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <MapClickHandler onMapClick={onMapClick} />
+      {center && <FlyToCenter center={center} />}
+      {places.map((place) => (
+        <Marker
+          key={place.id}
+          position={[place.lat, place.lng]}
+          icon={createColoredIcon(place.categoria)}
+          eventHandlers={{
+            click: () => onClickMarker?.(place),
+          }}
+        />
+      ))}
+    </MapContainer>
+  );
+}
