@@ -7,10 +7,7 @@ import { z } from "zod";
 import type { Place, Category } from "@minha-viagem/shared";
 import { CATEGORY_LABELS } from "@minha-viagem/shared";
 import { Dialog } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select } from "@/components/ui/select";
+import { X } from "lucide-react";
 
 const placeSchema = z.object({
   nome: z.string().min(1, "Nome obrigatório"),
@@ -69,87 +66,109 @@ export function PlaceForm({ open, onClose, onSubmit, initialData, title }: Place
   }
 
   return (
-    <Dialog open={open} onClose={onClose} title={title}>
-      <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="nome">Nome do local</Label>
-          <Input
-            id="nome"
-            placeholder="Ex: Torre Eiffel"
-            {...register("nome")}
-          />
-          {errors.nome && (
-            <p className="text-xs text-red-600">{errors.nome.message}</p>
-          )}
+    <Dialog open={open} onClose={onClose}>
+      <div className="flex flex-col w-full max-w-[480px]">
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-[#E5DFD7] px-6 py-5">
+          <h2 className="text-lg font-bold text-[#2D2A26]">{title}</h2>
+          <button
+            onClick={onClose}
+            className="rounded-lg p-1.5 text-[#B5AFA8] hover:bg-[#F2EDE7] hover:text-[#8C8680] transition-colors"
+          >
+            <X size={18} />
+          </button>
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="categoria">Categoria</Label>
-          <Controller
-            control={control}
-            name="categoria"
-            render={({ field }) => (
-              <Select id="categoria" value={field.value} onChange={field.onChange}>
-                {(Object.entries(CATEGORY_LABELS) as [Category, string][]).map(([key, label]) => (
-                  <option key={key} value={key}>
-                    {label}
-                  </option>
-                ))}
-              </Select>
-            )}
-          />
-          {errors.categoria && (
-            <p className="text-xs text-red-600">{errors.categoria.message}</p>
-          )}
-        </div>
+        {/* Body */}
+        <form onSubmit={handleSubmit(handleFormSubmit)} className="flex flex-col gap-5 px-6 py-6">
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-medium text-[#2D2A26]">Nome do local</label>
+            <input
+              placeholder="Ex: Torre Eiffel"
+              className="input-warm"
+              {...register("nome")}
+            />
+            {errors.nome && <p className="text-xs text-red-500">{errors.nome.message}</p>}
+          </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="data">Data</Label>
-          <Input
-            id="data"
-            type="date"
-            {...register("data")}
-          />
-          {errors.data && (
-            <p className="text-xs text-red-600">{errors.data.message}</p>
-          )}
-        </div>
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-medium text-[#2D2A26]">Categoria</label>
+            <Controller
+              control={control}
+              name="categoria"
+              render={({ field }) => (
+                <select
+                  className="input-warm appearance-none cursor-pointer"
+                  value={field.value}
+                  onChange={field.onChange}
+                >
+                  {(Object.entries(CATEGORY_LABELS) as [Category, string][]).map(([key, label]) => (
+                    <option key={key} value={key}>{label}</option>
+                  ))}
+                </select>
+              )}
+            />
+            {errors.categoria && <p className="text-xs text-red-500">{errors.categoria.message}</p>}
+          </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="hora_entrada">Horário de entrada</Label>
-            <Input
-              id="hora_entrada"
-              type="time"
-              {...register("hora_entrada")}
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-medium text-[#2D2A26]">Data</label>
+            <input
+              type="date"
+              className="input-warm"
+              {...register("data")}
+            />
+            {errors.data && <p className="text-xs text-red-500">{errors.data.message}</p>}
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-medium text-[#2D2A26]">Horário de entrada</label>
+              <input
+                type="time"
+                className="input-warm"
+                {...register("hora_entrada")}
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-medium text-[#2D2A26]">Horário de saída</label>
+              <input
+                type="time"
+                className="input-warm"
+                {...register("hora_saida")}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-medium text-[#2D2A26]">Notas</label>
+            <input
+              placeholder="Observações..."
+              className="input-warm"
+              {...register("notas")}
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="hora_saida">Horário de saída</Label>
-            <Input
-              id="hora_saida"
-              type="time"
-              {...register("hora_saida")}
-            />
-          </div>
-        </div>
+        </form>
 
-        <div className="space-y-2">
-          <Label htmlFor="notas">Notas</Label>
-          <Input
-            id="notas"
-            placeholder="Observações..."
-            {...register("notas")}
-          />
-        </div>
-
-        <div className="flex justify-end gap-3 pt-2">
-          <Button type="button" variant="outline" onClick={onClose}>
+        {/* Footer */}
+        <div className="flex items-center justify-end gap-3 border-t border-[#E5DFD7] px-6 py-4">
+          <button
+            type="button"
+            onClick={onClose}
+            className="btn-secondary"
+          >
             Cancelar
-          </Button>
-          <Button type="submit" disabled={isSubmitting}>Salvar</Button>
+          </button>
+          <button
+            type="submit"
+            onClick={handleSubmit(handleFormSubmit)}
+            disabled={isSubmitting}
+            className="btn-primary"
+          >
+            {isSubmitting ? "Salvando..." : "Salvar"}
+          </button>
         </div>
-      </form>
+      </div>
     </Dialog>
   );
 }

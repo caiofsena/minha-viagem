@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-warm: #F2EDE7;
+    --surface-warm: #FAF7F2;
+    --surface-inverse: #2D2A26;
+    --accent-terracotta: #E07A5F;
+    --accent-ocean: #3D8B7A;
+    --text-primary: #2D2A26;
+    --text-secondary: #8C8680;
+    --text-muted: #B5AFA8;
+    --border-warm: #E5DFD7;
+    --cat-hotel: #7C6BC4;
+    --cat-restaurante: #E07A5F;
+    --cat-museu: #9B7ED8;
+    --cat-parque: #5BA48A;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#E07A5F] text-white font-semibold rounded-xl h-11 px-6 hover:bg-[#E07A5F]/90 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-[#F2EDE7] text-[#8C8680] font-medium rounded-xl h-11 px-5 border border-[#E5DFD7] hover:bg-[#E5DFD7] transition-colors;
+  }
+
+  .input-warm {
+    @apply bg-[#F2EDE7] border border-[#E5DFD7] rounded-xl h-11 px-4 text-sm text-[#2D2A26] placeholder:text-[#B5AFA8] focus:outline-none focus:border-[#E07A5F] transition-colors;
+  }
+
+  .card-warm {
+    @apply bg-[#FAF7F2] border border-[#E5DFD7] rounded-2xl;
+  }
+
+  .badge-category {
+    @apply inline-flex items-center justify-center rounded-full px-3 py-1 text-xs font-semibold;
+  }
+}

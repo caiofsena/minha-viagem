@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
+      <body className="min-h-screen bg-[#F2EDE7] font-sans text-[#2D2A26]">
         <QueryProvider>
           <AuthProvider>
             <main>{children}</main>

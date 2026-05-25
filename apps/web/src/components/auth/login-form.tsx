@@ -5,10 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Compass } from "lucide-react";
 
 const loginSchema = z.object({
   email: z.string().email("Email inválido"),
@@ -39,50 +36,71 @@ export function LoginForm() {
     if (error) {
       setError("root", { message: error.message });
     } else {
-      router.push("/");
+      router.push("/dashboard");
       router.refresh();
     }
   }
 
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader>
-        <CardTitle>Entrar</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="seu@email.com"
-              {...register("email")}
-            />
-            {errors.email && (
-              <p className="text-xs text-red-600">{errors.email.message}</p>
-            )}
+    <div className="flex min-h-screen items-center justify-center bg-[#F2EDE7] px-4">
+      <div className="flex w-full max-w-[420px] flex-col">
+        <div className="card-warm p-0">
+          <div className="flex flex-col gap-2 border-b border-[#E5DFD7] px-8 pt-8 pb-6">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#E07A5F]/10">
+              <Compass size={24} className="text-[#E07A5F]" />
+            </div>
+            <h1 className="text-xl font-bold text-[#2D2A26]">Bem-vindo de volta</h1>
+            <p className="text-sm text-[#8C8680]">Entre para continuar planejando</p>
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="password">Senha</Label>
-            <Input
-              id="password"
-              type="password"
-              placeholder="Sua senha"
-              {...register("password")}
-            />
-            {errors.password && (
-              <p className="text-xs text-red-600">{errors.password.message}</p>
+
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 px-8 pt-6 pb-8">
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-medium text-[#2D2A26]">Email</label>
+              <input
+                type="email"
+                placeholder="seu@email.com"
+                className="input-warm"
+                {...register("email")}
+              />
+              {errors.email && (
+                <p className="text-xs text-red-500">{errors.email.message}</p>
+              )}
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-medium text-[#2D2A26]">Senha</label>
+              <input
+                type="password"
+                placeholder="••••••••"
+                className="input-warm"
+                {...register("password")}
+              />
+              {errors.password && (
+                <p className="text-xs text-red-500">{errors.password.message}</p>
+              )}
+            </div>
+
+            {errors.root && (
+              <p className="text-sm text-red-500">{errors.root.message}</p>
             )}
-          </div>
-          {errors.root && (
-            <p className="text-sm text-red-600">{errors.root.message}</p>
-          )}
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? "Entrando..." : "Entrar"}
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn-primary w-full"
+            >
+              {isSubmitting ? "Entrando..." : "Entrar"}
+            </button>
+          </form>
+        </div>
+
+        <p className="mt-5 text-center text-sm text-[#8C8680]">
+          Não tem conta?{" "}
+          <a href="/register" className="font-semibold text-[#E07A5F] hover:underline">
+            Criar conta
+          </a>
+        </p>
+      </div>
+    </div>
   );
 }

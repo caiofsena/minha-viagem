@@ -6,27 +6,19 @@ import L from "leaflet";
 import type { Place, Category } from "@minha-viagem/shared";
 import { CATEGORY_COLORS } from "@minha-viagem/shared";
 
-const defaultIcon = L.icon({
-  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-});
-
 function createColoredIcon(category: Category) {
   const color = CATEGORY_COLORS[category];
   return L.divIcon({
     className: "custom-marker",
     html: `<div style="
-      width: 24px; height: 24px; 
+      width: 28px; height: 28px; 
       border-radius: 50%; 
       background: ${color}; 
-      border: 3px solid white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      border: 3px solid #FAF7F2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     "></div>`,
-    iconSize: [24, 24],
-    iconAnchor: [12, 12],
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
   });
 }
 
@@ -66,14 +58,14 @@ export function Map({ places, onClickMarker, onMapClick, center }: MapProps) {
   }, []);
 
   if (!mounted) {
-    return <div className="h-full w-full bg-zinc-100 animate-pulse rounded-lg" />;
+    return <div className="h-full w-full bg-[#D4CFC7] animate-pulse" />;
   }
 
   return (
     <MapContainer
       center={center || [-15.7934, -47.8823]}
       zoom={center ? 14 : 4}
-      className="h-full w-full rounded-lg"
+      className="h-full w-full"
       scrollWheelZoom={true}
     >
       <TileLayer

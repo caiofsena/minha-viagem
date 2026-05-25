@@ -5,19 +5,31 @@ import { useRouter } from "next/navigation";
 import { useTripStore } from "@/stores/tripStore";
 import { useAuthStore } from "@/stores/authStore";
 import { usePlaces, useAddPlace, useUpdatePlace, useRemovePlace } from "@/hooks/usePlaces";
+import { useTrip } from "@/hooks/useTrips";
 import { Map } from "@/components/map/map";
 import { ItineraryList } from "@/components/itinerary/itinerary-list";
 import { PlaceForm } from "@/components/forms/place-form";
 import type { PlaceFormData } from "@/components/forms/place-form";
-import { Button } from "@/components/ui/button";
 import type { Place, Category } from "@minha-viagem/shared";
-import { ArrowLeft, Plus } from "lucide-react";
+import { ArrowLeft, Plus, Calendar } from "lucide-react";
 import { useState } from "react";
+
+const CATEGORIES: Category[] = ["hotel", "restaurante", "museu", "parque", "compras", "aeroporto", "outro"];
+const CATEGORY_LABELS: Record<Category, string> = {
+  hotel: "Hotel",
+  restaurante: "Restaurante",
+  museu: "Museu",
+  parque: "Parque",
+  compras: "Compras",
+  aeroporto: "Aeroporto",
+  outro: "Outro",
+};
 
 export default function TripDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const { user, loading: authLoading } = useAuthStore();
   const { formOpen, editingPlace, newLat, newLng, openPlaceForm, closePlaceForm } = useTripStore();
+  const { data: trip } = useTrip(id);
   const { data: places = [], isLoading: placesLoading } = usePlaces(id);
   const addPlace = useAddPlace();
   const updatePlace = useUpdatePlace();
@@ -92,13 +104,35 @@ export default function TripDetailPage({ params }: { params: Promise<{ id: strin
       ? [places[0].lat, places[0].lng]
       : [-15.7934, -47.8823];
 
+  const startDate = trip?.data_inicio ? new Date(trip.data_inicio) : null;
+  const endDate = trip?.data_fim ? new Date(trip.data_fim) : null;
+  const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+  const dateRange = startDate && endDate
+    ? `${startDate.getDate()} — ${endDate.getDate()} de ${months[endDate.getMonth()]}, ${endDate.getFullYear()}`
+    : "";
+
   return (
-    <div className="flex h-[calc(100vh-3.5rem)] flex-col lg:flex-row">
-      <div className="relative h-[40vh] lg:h-full lg:w-1/2">
-        <div className="absolute top-3 left-3 z-[1000]">
-          <Button size="sm" variant="outline" className="bg-white" onClick={() => router.push("/")}>
-            <ArrowLeft size={14} className="mr-1" /> Voltar
-          </Button>
+    <div className="flex h-[calc(100vh-3.5rem)] bg-[#F2EDE7]">
+      {/* Map Area */}
+      <div className="relative h-full w-1/2 bg-[#D4CFC7]">
+        <div className="absolute top-4 left-4 z-[1000] flex flex-col gap-3">
+          <button
+            onClick={() => router.push("/dashboard")}
+            className="inline-flex items-center gap-1.5 rounded-xl bg-[#FAF7F2] px-3.5 py-2 text-sm font-medium text-[#2D2A26] shadow-sm border border-[#E5DFD7] hover:bg-[#F2EDE7] transition-colors"
+          >
+            <ArrowLeft size={16} /> Voltar
+          </button>
+          {trip && (
+            <div className="rounded-xl bg-[#FAF7F2] px-4 py-3 shadow-sm border border-[#E5DFD7]">
+              <h2 className="text-lg font-bold text-[#2D2A26]">{trip.nome}</h2>
+              {dateRange && (
+                <div className="mt-1 flex items-center gap-1.5">
+                  <Calendar size={14} className="text-[#B5AFA8]" />
+                  <span className="text-sm text-[#8C8680]">{dateRange}</span>
+                </div>
+              )}
+            </div>
+          )}
         </div>
         <Map
           places={filteredPlaces}
@@ -108,47 +142,47 @@ export default function TripDetailPage({ params }: { params: Promise<{ id: strin
         />
       </div>
 
-      <div className="flex flex-1 flex-col overflow-auto border-t border-zinc-200 lg:border-l lg:border-t-0">
-        <div className="sticky top-0 z-10 border-b border-zinc-200 bg-white px-4 py-3">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-lg font-semibold">Itinerário</h2>
-            <Button size="sm" onClick={() => openPlaceForm()}>
-              <Plus size={14} className="mr-1" /> Adicionar
-            </Button>
+      {/* Sidebar */}
+      <div className="flex h-full w-1/2 flex-col border-l border-[#E5DFD7] bg-[#FAF7F2]">
+        {/* Header */}
+        <div className="flex flex-col gap-0 border-b border-[#E5DFD7] px-5 pt-5 pb-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-bold text-[#2D2A26]">Itinerário</h2>
+            <button
+              onClick={() => openPlaceForm()}
+              className="inline-flex items-center gap-1.5 rounded-xl bg-[#E07A5F] px-3.5 py-2 text-sm font-semibold text-white hover:bg-[#E07A5F]/90 transition-colors"
+            >
+              <Plus size={14} /> Adicionar
+            </button>
           </div>
 
-          <div className="flex flex-wrap gap-1">
-            {(["hotel", "restaurante", "museu", "parque", "compras", "aeroporto", "outro"] as Category[]).map(
-              (cat) => (
+          {/* Category Filters */}
+          <div className="mt-3.5 flex flex-wrap gap-2">
+            {CATEGORIES.map((cat) => {
+              const isActive = activeFilters.has(cat);
+              return (
                 <button
                   key={cat}
                   onClick={() => toggleFilter(cat)}
-                  className={`rounded-full px-2 py-0.5 text-xs font-medium transition-colors ${
-                    activeFilters.has(cat)
-                      ? "bg-zinc-900 text-white"
-                      : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
+                  className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                    isActive
+                      ? "bg-[#E07A5F] text-white"
+                      : "bg-[#F2EDE7] text-[#8C8680] hover:bg-[#E5DFD7]"
                   }`}
                 >
-                  {{
-                    hotel: "Hotel",
-                    restaurante: "Restaurante",
-                    museu: "Museu",
-                    parque: "Parque",
-                    compras: "Compras",
-                    aeroporto: "Aeroporto",
-                    outro: "Outro",
-                  }[cat]}
+                  {CATEGORY_LABELS[cat]}
                 </button>
-              )
-            )}
+              );
+            })}
           </div>
         </div>
 
-        <div className="flex-1 overflow-auto px-4 py-4">
+        {/* Places List */}
+        <div className="flex-1 overflow-auto px-5 py-5">
           {placesLoading ? (
             <div className="space-y-3 py-8">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="h-16 animate-pulse rounded-lg bg-zinc-100" />
+                <div key={i} className="h-20 animate-pulse rounded-xl bg-[#F2EDE7]" />
               ))}
             </div>
           ) : (
@@ -166,11 +200,7 @@ export default function TripDetailPage({ params }: { params: Promise<{ id: strin
         open={formOpen}
         onClose={closePlaceForm}
         onSubmit={handleSubmitPlace}
-        initialData={
-          editingPlace
-            ? editingPlace
-            : undefined
-        }
+        initialData={editingPlace || undefined}
         title={editingPlace ? "Editar Local" : "Novo Local"}
       />
     </div>
