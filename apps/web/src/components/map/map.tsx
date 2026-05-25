@@ -14,8 +14,8 @@ function createColoredIcon(category: Category) {
       width: 28px; height: 28px; 
       border-radius: 50%; 
       background: ${color}; 
-      border: 3px solid #FAF7F2;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border: 3px solid #252b48;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     "></div>`,
     iconSize: [28, 28],
     iconAnchor: [14, 14],
@@ -58,7 +58,7 @@ export function Map({ places, onClickMarker, onMapClick, center }: MapProps) {
   }, []);
 
   if (!mounted) {
-    return <div className="h-full w-full bg-[#D4CFC7] animate-pulse" />;
+    return <div className="h-full w-full bg-[#252b48] animate-pulse" />;
   }
 
   return (

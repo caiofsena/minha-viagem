@@ -69,11 +69,11 @@ export function PlaceForm({ open, onClose, onSubmit, initialData, title }: Place
     <Dialog open={open} onClose={onClose}>
       <div className="flex flex-col w-full max-w-[480px]">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#E5DFD7] px-6 py-5">
-          <h2 className="text-lg font-bold text-[#2D2A26]">{title}</h2>
+        <div className="flex items-center justify-between border-b border-[#2d3561] px-6 py-5">
+          <h2 className="text-lg font-bold text-white">{title}</h2>
           <button
             onClick={onClose}
-            className="rounded-lg p-1.5 text-[#B5AFA8] hover:bg-[#F2EDE7] hover:text-[#8C8680] transition-colors"
+            className="rounded-lg p-1.5 text-[#718096] hover:bg-[#2d3561] hover:text-[#a0aec0] transition-colors"
           >
             <X size={18} />
           </button>
@@ -82,13 +82,13 @@ export function PlaceForm({ open, onClose, onSubmit, initialData, title }: Place
         {/* Body */}
         <form onSubmit={handleSubmit(handleFormSubmit)} className="flex flex-col gap-5 px-6 py-6">
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-medium text-[#2D2A26]">Nome do local</label>
+            <label className="text-sm font-medium text-white">Nome do local</label>
             <input placeholder="Ex: Torre Eiffel" className="input-warm" {...register("nome")} />
-            {errors.nome && <p className="text-xs text-red-500">{errors.nome.message}</p>}
+            {errors.nome && <p className="text-xs text-red-400">{errors.nome.message}</p>}
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-medium text-[#2D2A26]">Categoria</label>
+            <label className="text-sm font-medium text-white">Categoria</label>
             <Controller
               control={control}
               name="categoria"
@@ -106,33 +106,33 @@ export function PlaceForm({ open, onClose, onSubmit, initialData, title }: Place
                 </select>
               )}
             />
-            {errors.categoria && <p className="text-xs text-red-500">{errors.categoria.message}</p>}
+            {errors.categoria && <p className="text-xs text-red-400">{errors.categoria.message}</p>}
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-medium text-[#2D2A26]">Data</label>
+            <label className="text-sm font-medium text-white">Data</label>
             <input type="date" className="input-warm" {...register("data")} />
-            {errors.data && <p className="text-xs text-red-500">{errors.data.message}</p>}
+            {errors.data && <p className="text-xs text-red-400">{errors.data.message}</p>}
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-[#2D2A26]">Horário de entrada</label>
+              <label className="text-sm font-medium text-white">Horário de entrada</label>
               <input type="time" className="input-warm" {...register("hora_entrada")} />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-[#2D2A26]">Horário de saída</label>
+              <label className="text-sm font-medium text-white">Horário de saída</label>
               <input type="time" className="input-warm" {...register("hora_saida")} />
             </div>
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-medium text-[#2D2A26]">Notas</label>
+            <label className="text-sm font-medium text-white">Notas</label>
             <input placeholder="Observações..." className="input-warm" {...register("notas")} />
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-end gap-3 border-t border-[#E5DFD7] pt-4">
+          <div className="flex items-center justify-end gap-3 border-t border-[#2d3561] pt-4">
             <button type="button" onClick={onClose} className="btn-secondary">
               Cancelar
             </button>

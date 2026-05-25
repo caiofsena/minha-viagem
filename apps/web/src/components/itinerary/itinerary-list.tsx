@@ -44,7 +44,7 @@ export function ItineraryList({
 
   if (days.length === 0) {
     return (
-      <div className="flex flex-col items-center py-16 text-[#B5AFA8]">
+      <div className="flex flex-col items-center py-16 text-[#718096]">
         <MapPin size={32} className="mb-3" />
         <p className="text-sm">Clique no mapa para adicionar lugares</p>
       </div>
@@ -56,8 +56,8 @@ export function ItineraryList({
       {days.map((day) => (
         <div key={day.data} className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
-            <h3 className="text-sm font-bold text-[#2D2A26] capitalize">{formatDate(day.data)}</h3>
-            <span className="badge-category bg-[#3D8B7A]/10 text-[#3D8B7A]">
+            <h3 className="text-sm font-bold text-white capitalize">{formatDate(day.data)}</h3>
+            <span className="badge-category bg-[#4ecdc4]/10 text-[#4ecdc4]">
               {day.places.length} {day.places.length === 1 ? "lugar" : "lugares"}
             </span>
           </div>
@@ -75,15 +75,15 @@ export function ItineraryList({
                   onClick={() => onToggleVisited(place)}
                   className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors"
                   style={{
-                    borderColor: place.visitado ? "#E07A5F" : "#E5DFD7",
-                    backgroundColor: place.visitado ? "#E07A5F" : "#FAF7F2",
+                    borderColor: place.visitado ? "#4ecdc4" : "#2d3561",
+                    backgroundColor: place.visitado ? "#4ecdc4" : "#252b48",
                   }}
                 >
                   {place.visitado && (
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path
                         d="M2 6L5 9L10 3"
-                        stroke="white"
+                        stroke="#1a1f3d"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -97,7 +97,7 @@ export function ItineraryList({
                   <div className="flex items-center gap-2">
                     <h4
                       className={`text-[15px] font-semibold ${
-                        place.visitado ? "line-through text-[#B5AFA8]" : "text-[#2D2A26]"
+                        place.visitado ? "line-through text-[#718096]" : "text-white"
                       }`}
                     >
                       {place.nome}
@@ -114,28 +114,28 @@ export function ItineraryList({
                   </div>
 
                   {(place.hora_entrada || place.hora_saida) && (
-                    <div className="flex items-center gap-1.5 text-sm text-[#8C8680]">
-                      <Clock size={14} className="text-[#B5AFA8]" />
+                    <div className="flex items-center gap-1.5 text-sm text-[#a0aec0]">
+                      <Clock size={14} className="text-[#718096]" />
                       {place.hora_entrada && <span>{place.hora_entrada}</span>}
                       {place.hora_entrada && place.hora_saida && <span>—</span>}
                       {place.hora_saida && <span>{place.hora_saida}</span>}
                     </div>
                   )}
 
-                  {place.notas && <p className="text-xs text-[#B5AFA8]">{place.notas}</p>}
+                  {place.notas && <p className="text-xs text-[#718096]">{place.notas}</p>}
                 </div>
 
                 {/* Actions */}
                 <div className="flex shrink-0 items-center gap-1">
                   <button
                     onClick={() => onEditPlace(place)}
-                    className="rounded-lg p-1.5 text-[#B5AFA8] hover:bg-[#F2EDE7] hover:text-[#8C8680] transition-colors"
+                    className="rounded-lg p-1.5 text-[#718096] hover:bg-[#2d3561] hover:text-[#a0aec0] transition-colors"
                   >
                     <Pencil size={14} />
                   </button>
                   <button
                     onClick={() => onDeletePlace(place)}
-                    className="rounded-lg p-1.5 text-[#B5AFA8] hover:bg-[#F2EDE7] hover:text-red-500 transition-colors"
+                    className="rounded-lg p-1.5 text-[#718096] hover:bg-[#2d3561] hover:text-red-400 transition-colors"
                   >
                     <Trash2 size={14} />
                   </button>

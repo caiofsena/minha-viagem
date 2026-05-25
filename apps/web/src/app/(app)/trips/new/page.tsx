@@ -39,59 +39,59 @@ export default function NewTripPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#F2EDE7] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#1a1f3d] px-4">
       <div className="flex w-full max-w-[520px] flex-col">
         <button
           onClick={() => router.push("/dashboard")}
-          className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-[#8C8680] hover:text-[#2D2A26] transition-colors"
+          className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-[#a0aec0] hover:text-white transition-colors"
         >
           <ArrowLeft size={16} /> Voltar
         </button>
 
         <div className="card-warm p-0">
-          <div className="flex items-center justify-between border-b border-[#E5DFD7] px-6 py-5">
-            <h1 className="text-lg font-bold text-[#2D2A26]">Nova Viagem</h1>
+          <div className="flex items-center justify-between border-b border-[#2d3561] px-6 py-5">
+            <h1 className="text-lg font-bold text-white">Nova Viagem</h1>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 px-6 py-6">
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-[#2D2A26]">Nome da viagem</label>
+              <label className="text-sm font-medium text-white">Nome da viagem</label>
               <input
                 placeholder="Ex: Férias em Paris"
                 className="input-warm"
                 {...register("nome")}
               />
-              {errors.nome && <p className="text-xs text-red-500">{errors.nome.message}</p>}
+              {errors.nome && <p className="text-xs text-red-400">{errors.nome.message}</p>}
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-[#2D2A26]">Destino</label>
+              <label className="text-sm font-medium text-white">Destino</label>
               <input
                 placeholder="Ex: Paris, França"
                 className="input-warm"
                 {...register("destino")}
               />
-              {errors.destino && <p className="text-xs text-red-500">{errors.destino.message}</p>}
+              {errors.destino && <p className="text-xs text-red-400">{errors.destino.message}</p>}
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-[#2D2A26]">Data de início</label>
+                <label className="text-sm font-medium text-white">Data de início</label>
                 <input type="date" className="input-warm" {...register("data_inicio")} />
                 {errors.data_inicio && (
-                  <p className="text-xs text-red-500">{errors.data_inicio.message}</p>
+                  <p className="text-xs text-red-400">{errors.data_inicio.message}</p>
                 )}
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-[#2D2A26]">Data de fim</label>
+                <label className="text-sm font-medium text-white">Data de fim</label>
                 <input type="date" className="input-warm" {...register("data_fim")} />
                 {errors.data_fim && (
-                  <p className="text-xs text-red-500">{errors.data_fim.message}</p>
+                  <p className="text-xs text-red-400">{errors.data_fim.message}</p>
                 )}
               </div>
             </div>
 
-            {errors.root && <p className="text-sm text-red-500">{errors.root.message}</p>}
+            {errors.root && <p className="text-sm text-red-400">{errors.root.message}</p>}
 
             <div className="flex items-center justify-end gap-3 pt-2">
               <button

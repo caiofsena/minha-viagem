@@ -49,11 +49,11 @@ export const CATEGORY_LABELS: Record<Category, string> = {
 };
 
 export const CATEGORY_COLORS: Record<Category, string> = {
-  hotel: "#6366f1",
+  hotel: "#a78bfa",
   restaurante: "#f97316",
-  museu: "#8b5cf6",
-  parque: "#22c55e",
-  compras: "#ec4899",
-  aeroporto: "#3b82f6",
-  outro: "#6b7280",
+  museu: "#c084fc",
+  parque: "#34d399",
+  compras: "#f472b6",
+  aeroporto: "#60a5fa",
+  outro: "#94a3b8",
 };

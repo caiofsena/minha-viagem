@@ -114,23 +114,23 @@ export default function TripDetailPage({ params }: { params: Promise<{ id: strin
       : "";
 
   return (
-    <div className="flex h-[calc(100vh-3.5rem)] bg-[#F2EDE7]">
+    <div className="flex h-[calc(100vh-3.5rem)] bg-[#1a1f3d]">
       {/* Map Area */}
-      <div className="relative h-full w-1/2 bg-[#D4CFC7]">
+      <div className="relative h-full w-1/2 bg-[#252b48]">
         <div className="absolute top-4 left-4 z-[1000] flex flex-col gap-3">
           <button
             onClick={() => router.push("/dashboard")}
-            className="inline-flex items-center gap-1.5 rounded-xl bg-[#FAF7F2] px-3.5 py-2 text-sm font-medium text-[#2D2A26] shadow-sm border border-[#E5DFD7] hover:bg-[#F2EDE7] transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-[#252b48] px-3.5 py-2 text-sm font-medium text-white shadow-sm border border-[#2d3561] hover:bg-[#2d3561] transition-colors"
           >
             <ArrowLeft size={16} /> Voltar
           </button>
           {trip && (
-            <div className="rounded-xl bg-[#FAF7F2] px-4 py-3 shadow-sm border border-[#E5DFD7]">
-              <h2 className="text-lg font-bold text-[#2D2A26]">{trip.nome}</h2>
+            <div className="rounded-xl bg-[#252b48] px-4 py-3 shadow-sm border border-[#2d3561]">
+              <h2 className="text-lg font-bold text-white">{trip.nome}</h2>
               {dateRange && (
                 <div className="mt-1 flex items-center gap-1.5">
-                  <Calendar size={14} className="text-[#B5AFA8]" />
-                  <span className="text-sm text-[#8C8680]">{dateRange}</span>
+                  <Calendar size={14} className="text-[#718096]" />
+                  <span className="text-sm text-[#a0aec0]">{dateRange}</span>
                 </div>
               )}
             </div>
@@ -145,14 +145,14 @@ export default function TripDetailPage({ params }: { params: Promise<{ id: strin
       </div>
 
       {/* Sidebar */}
-      <div className="flex h-full w-1/2 flex-col border-l border-[#E5DFD7] bg-[#FAF7F2]">
+      <div className="flex h-full w-1/2 flex-col border-l border-[#2d3561] bg-[#252b48]">
         {/* Header */}
-        <div className="flex flex-col gap-0 border-b border-[#E5DFD7] px-5 pt-5 pb-4">
+        <div className="flex flex-col gap-0 border-b border-[#2d3561] px-5 pt-5 pb-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-bold text-[#2D2A26]">Itinerário</h2>
+            <h2 className="text-lg font-bold text-white">Itinerário</h2>
             <button
               onClick={() => openPlaceForm()}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-[#E07A5F] px-3.5 py-2 text-sm font-semibold text-white hover:bg-[#E07A5F]/90 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-[#4ecdc4] px-3.5 py-2 text-sm font-semibold text-[#1a1f3d] hover:bg-[#4ecdc4]/90 transition-colors"
             >
               <Plus size={14} /> Adicionar
             </button>
@@ -168,8 +168,8 @@ export default function TripDetailPage({ params }: { params: Promise<{ id: strin
                   onClick={() => toggleFilter(cat)}
                   className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
                     isActive
-                      ? "bg-[#E07A5F] text-white"
-                      : "bg-[#F2EDE7] text-[#8C8680] hover:bg-[#E5DFD7]"
+                      ? "bg-[#4ecdc4] text-[#1a1f3d]"
+                      : "bg-[#2d3561] text-[#a0aec0] hover:bg-[#2d3561]/80"
                   }`}
                 >
                   {CATEGORY_LABELS[cat]}
@@ -184,7 +184,7 @@ export default function TripDetailPage({ params }: { params: Promise<{ id: strin
           {placesLoading ? (
             <div className="space-y-3 py-8">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="h-20 animate-pulse rounded-xl bg-[#F2EDE7]" />
+                <div key={i} className="h-20 animate-pulse rounded-xl bg-[#2d3561]" />
               ))}
             </div>
           ) : (

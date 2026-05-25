@@ -4,37 +4,50 @@
 
 @layer base {
   :root {
-    --bg-warm: #F2EDE7;
-    --surface-warm: #FAF7F2;
-    --surface-inverse: #2D2A26;
-    --accent-terracotta: #E07A5F;
-    --accent-ocean: #3D8B7A;
-    --text-primary: #2D2A26;
-    --text-secondary: #8C8680;
-    --text-muted: #B5AFA8;
-    --border-warm: #E5DFD7;
-    --cat-hotel: #7C6BC4;
-    --cat-restaurante: #E07A5F;
-    --cat-museu: #9B7ED8;
-    --cat-parque: #5BA48A;
+    /* Background colors */
+    --bg-primary: #1a1f3d;
+    --bg-surface: #252b48;
+    --bg-surface-hover: #2d3561;
+
+    /* Accent colors */
+    --accent-primary: #4ecdc4;
+    --accent-secondary: #0052d4;
+    --accent-bright: #4364f7;
+
+    /* Text colors */
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+    --text-muted: #718096;
+
+    /* Border */
+    --border: #2d3561;
+
+    /* Category colors */
+    --cat-hotel: #a78bfa;
+    --cat-restaurante: #f97316;
+    --cat-museu: #c084fc;
+    --cat-parque: #34d399;
+    --cat-compras: #f472b6;
+    --cat-aeroporto: #60a5fa;
+    --cat-outro: #94a3b8;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-[#E07A5F] text-white font-semibold rounded-xl h-11 px-6 hover:bg-[#E07A5F]/90 transition-colors;
+    @apply bg-[#4ecdc4] text-[#1a1f3d] font-semibold rounded-xl h-11 px-6 hover:bg-[#4ecdc4]/90 transition-colors;
   }
 
   .btn-secondary {
-    @apply bg-[#F2EDE7] text-[#8C8680] font-medium rounded-xl h-11 px-5 border border-[#E5DFD7] hover:bg-[#E5DFD7] transition-colors;
+    @apply bg-[#2d3561] text-[#a0aec0] font-medium rounded-xl h-11 px-5 border border-[#2d3561] hover:bg-[#2d3561]/80 transition-colors;
   }
 
   .input-warm {
-    @apply bg-[#F2EDE7] border border-[#E5DFD7] rounded-xl h-11 px-4 text-sm text-[#2D2A26] placeholder:text-[#B5AFA8] focus:outline-none focus:border-[#E07A5F] transition-colors;
+    @apply bg-[#252b48] border border-[#2d3561] rounded-xl h-11 px-4 text-sm text-white placeholder:text-[#718096] focus:outline-none focus:border-[#4ecdc4] transition-colors;
   }
 
   .card-warm {
-    @apply bg-[#FAF7F2] border border-[#E5DFD7] rounded-2xl;
+    @apply bg-[#252b48] border border-[#2d3561] rounded-2xl;
   }
 
   .badge-category {

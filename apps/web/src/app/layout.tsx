@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className="min-h-screen bg-[#F2EDE7] font-sans text-[#2D2A26]">
+      <body className="min-h-screen bg-[#1a1f3d] font-sans text-white">
         <QueryProvider>
           <AuthProvider>
             <main>{children}</main>

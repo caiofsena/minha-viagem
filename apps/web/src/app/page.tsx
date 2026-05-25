@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useAuthStore } from "@/stores/authStore";
 import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Share2, Smartphone, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const features = [
   {
@@ -58,22 +59,28 @@ export default function LandingPage() {
   const navRegisterText = user ? "Dashboard" : "Criar Conta";
 
   return (
-    <div className="min-h-screen bg-[#F2EDE7]">
+    <div className="min-h-screen bg-[#1a1f3d]">
       {/* Navbar */}
-      <nav className="bg-[#FAF7F2] border-b border-[#E5DFD7]">
+      <nav className="border-b border-[#2d3561] bg-[#252b48]">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <Link href="/" className="flex items-center gap-2.5">
-            <MapPin size={24} className="text-[#E07A5F]" />
-            <span className="text-lg font-bold text-[#2D2A26]">Minha Viagem</span>
+            <Image
+              src="/logo-minha-viagem-icone-transparente.png"
+              alt="Minha Viagem"
+              width={28}
+              height={28}
+              className="h-7 w-7"
+            />
+            <span className="text-lg font-bold text-white">Minha Viagem</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href={navLoginHref}>
-              <Button variant="ghost" className="text-[#8C8680] hover:text-[#2D2A26]">
+              <Button variant="ghost" className="text-[#a0aec0] hover:text-white">
                 {navLoginText}
               </Button>
             </Link>
             <Link href={navRegisterHref}>
-              <Button className="bg-[#E07A5F] text-white hover:bg-[#E07A5F]/90">
+              <Button className="bg-[#4ecdc4] text-[#1a1f3d] hover:bg-[#4ecdc4]/90">
                 {navRegisterText}
               </Button>
             </Link>
@@ -83,21 +90,25 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section className="flex flex-col items-center px-6 py-24 text-center">
-        <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight text-[#2D2A26] sm:text-5xl lg:text-6xl">
+        <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
           Planeje suas viagens de forma inteligente
         </h1>
-        <p className="mt-6 max-w-xl text-lg text-[#8C8680]">
+        <p className="mt-6 max-w-xl text-lg text-[#a0aec0]">
           Organize roteiros, descubra lugares incríveis e compartilhe experiências com quem você
           ama.
         </p>
         <div className="mt-8 flex gap-4">
           <Link href={ctaHref}>
-            <Button size="lg" className="bg-[#E07A5F] px-8 text-white hover:bg-[#E07A5F]/90">
+            <Button size="lg" className="bg-[#4ecdc4] px-8 text-[#1a1f3d] hover:bg-[#4ecdc4]/90">
               Começar Agora <ArrowRight size={18} className="ml-2" />
             </Button>
           </Link>
           <a href="#features">
-            <Button size="lg" variant="outline" className="border-[#E5DFD7] bg-[#FAF7F2]">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-[#2d3561] bg-[#252b48] text-white"
+            >
               Saiba Mais
             </Button>
           </a>
@@ -106,18 +117,18 @@ export default function LandingPage() {
 
       {/* Features */}
       <section id="features" className="flex flex-col items-center px-6 py-20">
-        <h2 className="text-3xl font-bold text-[#2D2A26]">Por que usar o Minha Viagem?</h2>
+        <h2 className="text-3xl font-bold text-white">Por que usar o Minha Viagem?</h2>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {features.map((f) => (
             <div
               key={f.title}
-              className="flex flex-col gap-4 rounded-2xl border border-[#E5DFD7] bg-[#FAF7F2] p-8"
+              className="flex flex-col gap-4 rounded-2xl border border-[#2d3561] bg-[#252b48] p-8"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#E07A5F]/10">
-                <f.icon size={24} className="text-[#E07A5F]" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#4ecdc4]/10">
+                <f.icon size={24} className="text-[#4ecdc4]" />
               </div>
-              <h3 className="text-lg font-semibold text-[#2D2A26]">{f.title}</h3>
-              <p className="text-sm leading-relaxed text-[#8C8680]">{f.desc}</p>
+              <h3 className="text-lg font-semibold text-white">{f.title}</h3>
+              <p className="text-sm leading-relaxed text-[#a0aec0]">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -125,16 +136,16 @@ export default function LandingPage() {
 
       {/* How it works */}
       <section className="flex flex-col items-center px-6 py-20">
-        <h2 className="text-3xl font-bold text-[#2D2A26]">Como funciona</h2>
+        <h2 className="text-3xl font-bold text-white">Como funciona</h2>
         <div className="mt-12 flex w-full max-w-2xl flex-col gap-6">
           {steps.map((s) => (
             <div key={s.num} className="flex items-center gap-5">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E07A5F] text-lg font-bold text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#4ecdc4] text-lg font-bold text-[#1a1f3d]">
                 {s.num}
               </div>
               <div>
-                <h3 className="text-base font-semibold text-[#2D2A26]">{s.title}</h3>
-                <p className="text-sm text-[#8C8680]">{s.desc}</p>
+                <h3 className="text-base font-semibold text-white">{s.title}</h3>
+                <p className="text-sm text-[#a0aec0]">{s.desc}</p>
               </div>
             </div>
           ))}
@@ -143,15 +154,15 @@ export default function LandingPage() {
 
       {/* CTA */}
       <section className="flex flex-col items-center px-6 py-20">
-        <div className="flex w-full max-w-3xl flex-col items-center gap-6 rounded-3xl bg-[#E07A5F] px-10 py-16 text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
+        <div className="flex w-full max-w-3xl flex-col items-center gap-6 rounded-3xl bg-[#4ecdc4] px-10 py-16 text-center">
+          <h2 className="text-2xl font-bold text-[#1a1f3d] sm:text-3xl">
             Pronto para planejar sua próxima aventura?
           </h2>
-          <p className="text-[#FFFFFFCC]">
+          <p className="text-[#1a1f3d]/80">
             Crie sua conta gratuita e comece a organizar suas viagens hoje mesmo.
           </p>
           <Link href={ctaHref}>
-            <Button size="lg" className="bg-white px-10 text-[#E07A5F] hover:bg-white/90">
+            <Button size="lg" className="bg-white px-10 text-[#4ecdc4] hover:bg-white/90">
               {ctaText}
             </Button>
           </Link>
@@ -159,16 +170,16 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="flex items-center justify-between border-t border-[#E5DFD7] bg-[#FAF7F2] px-6 py-8">
-        <p className="text-sm text-[#B5AFA8]">© 2026 Minha Viagem. Todos os direitos reservados.</p>
+      <footer className="flex items-center justify-between border-t border-[#2d3561] bg-[#252b48] px-6 py-8">
+        <p className="text-sm text-[#718096]">© 2026 Minha Viagem. Todos os direitos reservados.</p>
         <div className="flex gap-6">
-          <a href="#" className="text-sm text-[#8C8680] hover:text-[#2D2A26]">
+          <a href="#" className="text-sm text-[#a0aec0] hover:text-white">
             Termos
           </a>
-          <a href="#" className="text-sm text-[#8C8680] hover:text-[#2D2A26]">
+          <a href="#" className="text-sm text-[#a0aec0] hover:text-white">
             Privacidade
           </a>
-          <a href="#" className="text-sm text-[#8C8680] hover:text-[#2D2A26]">
+          <a href="#" className="text-sm text-[#a0aec0] hover:text-white">
             Contato
           </a>
         </div>

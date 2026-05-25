@@ -33,7 +33,7 @@ export function Dialog({ open, onClose, children }: DialogProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/40"
+      className="fixed inset-0 z-[2000] flex items-center justify-center bg-[#1a1f3d]/80"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
