@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/authStore";
 import { Button } from "@/components/ui/button";
 import { MapPin, Menu, X, LogOut, Plus } from "lucide-react";
@@ -8,7 +9,13 @@ import { useState } from "react";
 
 export function Navbar() {
   const { user, signOut } = useAuthStore();
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  async function handleSignOut() {
+    await signOut();
+    router.push("/login");
+  }
 
   return (
     <nav className="border-b border-zinc-200 bg-white">
@@ -33,7 +40,7 @@ export function Navbar() {
                 </Button>
               </Link>
               <span className="text-sm text-zinc-500">{user.email}</span>
-              <Button variant="ghost" size="icon" onClick={signOut}>
+              <Button variant="ghost" size="icon" onClick={handleSignOut}>
                 <LogOut size={16} />
               </Button>
             </>
@@ -67,7 +74,7 @@ export function Navbar() {
                   <Plus size={14} className="mr-1" /> Nova Viagem
                 </Button>
               </Link>
-              <Button variant="ghost" size="sm" className="w-full justify-start" onClick={signOut}>
+              <Button variant="ghost" size="sm" className="w-full justify-start" onClick={handleSignOut}>
                 <LogOut size={14} className="mr-1" /> Sair
               </Button>
             </div>
