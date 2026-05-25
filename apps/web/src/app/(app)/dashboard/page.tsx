@@ -18,7 +18,10 @@ export default function DashboardPage() {
           <h1 className="text-3xl font-bold text-[#2D2A26]">Minhas Viagens</h1>
           <div className="flex items-center gap-3">
             <div className="relative">
-              <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#B5AFA8]" />
+              <Search
+                size={18}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#B5AFA8]"
+              />
               <input
                 type="text"
                 placeholder="Buscar..."
@@ -50,7 +53,20 @@ export default function DashboardPage() {
               const start = new Date(trip.data_inicio);
               const end = new Date(trip.data_fim);
               const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-              const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+              const months = [
+                "Jan",
+                "Fev",
+                "Mar",
+                "Abr",
+                "Mai",
+                "Jun",
+                "Jul",
+                "Ago",
+                "Set",
+                "Out",
+                "Nov",
+                "Dez",
+              ];
               const dateStr = `${start.getDate()} — ${end.getDate()} ${months[end.getMonth()]}`;
 
               return (

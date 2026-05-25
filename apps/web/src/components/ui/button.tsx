@@ -26,18 +26,11 @@ const button = tv({
 });
 
 interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof button> {}
+  extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof button> {}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
-    return (
-      <button
-        className={button({ variant, size, className })}
-        ref={ref}
-        {...props}
-      />
-    );
+    return <button className={button({ variant, size, className })} ref={ref} {...props} />;
   }
 );
 Button.displayName = "Button";

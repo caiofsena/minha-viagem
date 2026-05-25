@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useAuthStore } from "@/stores/authStore";
 import { Button } from "@/components/ui/button";
-import { MapPin, Calendar, Share2, Smartphone, ArrowRight, Check } from "lucide-react";
+import { MapPin, Calendar, Share2, Smartphone, ArrowRight } from "lucide-react";
 
 const features = [
   {
@@ -30,9 +30,21 @@ const features = [
 
 const steps = [
   { num: "1", title: "Crie sua conta", desc: "Cadastre-se gratuitamente em poucos segundos." },
-  { num: "2", title: "Planeje sua viagem", desc: "Adicione destinos, datas e lugares que deseja visitar." },
-  { num: "3", title: "Explore no mapa", desc: "Visualize tudo no mapa interativo e organize por dia." },
-  { num: "4", title: "Aproveite a viagem", desc: "Consulte seu roteiro offline e marque lugares visitados." },
+  {
+    num: "2",
+    title: "Planeje sua viagem",
+    desc: "Adicione destinos, datas e lugares que deseja visitar.",
+  },
+  {
+    num: "3",
+    title: "Explore no mapa",
+    desc: "Visualize tudo no mapa interativo e organize por dia.",
+  },
+  {
+    num: "4",
+    title: "Aproveite a viagem",
+    desc: "Consulte seu roteiro offline e marque lugares visitados.",
+  },
 ];
 
 export default function LandingPage() {
@@ -75,7 +87,8 @@ export default function LandingPage() {
           Planeje suas viagens de forma inteligente
         </h1>
         <p className="mt-6 max-w-xl text-lg text-[#8C8680]">
-          Organize roteiros, descubra lugares incríveis e compartilhe experiências com quem você ama.
+          Organize roteiros, descubra lugares incríveis e compartilhe experiências com quem você
+          ama.
         </p>
         <div className="mt-8 flex gap-4">
           <Link href={ctaHref}>
@@ -149,9 +162,15 @@ export default function LandingPage() {
       <footer className="flex items-center justify-between border-t border-[#E5DFD7] bg-[#FAF7F2] px-6 py-8">
         <p className="text-sm text-[#B5AFA8]">© 2026 Minha Viagem. Todos os direitos reservados.</p>
         <div className="flex gap-6">
-          <a href="#" className="text-sm text-[#8C8680] hover:text-[#2D2A26]">Termos</a>
-          <a href="#" className="text-sm text-[#8C8680] hover:text-[#2D2A26]">Privacidade</a>
-          <a href="#" className="text-sm text-[#8C8680] hover:text-[#2D2A26]">Contato</a>
+          <a href="#" className="text-sm text-[#8C8680] hover:text-[#2D2A26]">
+            Termos
+          </a>
+          <a href="#" className="text-sm text-[#8C8680] hover:text-[#2D2A26]">
+            Privacidade
+          </a>
+          <a href="#" className="text-sm text-[#8C8680] hover:text-[#2D2A26]">
+            Contato
+          </a>
         </div>
       </footer>
     </div>

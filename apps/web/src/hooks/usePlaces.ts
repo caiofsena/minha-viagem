@@ -24,11 +24,7 @@ export function useAddPlace() {
 
   return useMutation({
     mutationFn: async (place: Omit<Place, "id" | "created_at">) => {
-      const { data, error } = await supabase
-        .from("places")
-        .insert(place)
-        .select()
-        .single();
+      const { data, error } = await supabase.from("places").insert(place).select().single();
       if (error) throw error;
       return data as Place;
     },
@@ -62,7 +58,7 @@ export function useRemovePlace() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async ({ id, tripId }: { id: string; tripId: string }) => {
+    mutationFn: async ({ id, tripId: _tripId }: { id: string; tripId: string }) => {
       const { error } = await supabase.from("places").delete().eq("id", id);
       if (error) throw error;
     },

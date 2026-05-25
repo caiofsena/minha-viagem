@@ -1,6 +1,6 @@
 "use client";
 
-import type { Place, DayGroup, Category } from "@minha-viagem/shared";
+import type { Place, DayGroup } from "@minha-viagem/shared";
 import { CATEGORY_LABELS, CATEGORY_COLORS } from "@minha-viagem/shared";
 import { Clock, MapPin, Pencil, Trash2 } from "lucide-react";
 
@@ -56,9 +56,7 @@ export function ItineraryList({
       {days.map((day) => (
         <div key={day.data} className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
-            <h3 className="text-sm font-bold text-[#2D2A26] capitalize">
-              {formatDate(day.data)}
-            </h3>
+            <h3 className="text-sm font-bold text-[#2D2A26] capitalize">{formatDate(day.data)}</h3>
             <span className="badge-category bg-[#3D8B7A]/10 text-[#3D8B7A]">
               {day.places.length} {day.places.length === 1 ? "lugar" : "lugares"}
             </span>
@@ -83,7 +81,13 @@ export function ItineraryList({
                 >
                   {place.visitado && (
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path d="M2 6L5 9L10 3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        d="M2 6L5 9L10 3"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   )}
                 </button>
@@ -118,9 +122,7 @@ export function ItineraryList({
                     </div>
                   )}
 
-                  {place.notas && (
-                    <p className="text-xs text-[#B5AFA8]">{place.notas}</p>
-                  )}
+                  {place.notas && <p className="text-xs text-[#B5AFA8]">{place.notas}</p>}
                 </div>
 
                 {/* Actions */}

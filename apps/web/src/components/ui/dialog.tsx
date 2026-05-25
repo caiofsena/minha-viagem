@@ -38,9 +38,7 @@ export function Dialog({ open, onClose, children }: DialogProps) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="card-warm w-full max-w-[480px] shadow-xl">
-        {children}
-      </div>
+      <div className="card-warm w-full max-w-[480px] shadow-xl">{children}</div>
     </div>
   );
 }

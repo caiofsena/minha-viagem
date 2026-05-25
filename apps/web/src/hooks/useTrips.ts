@@ -21,11 +21,7 @@ export function useTrip(id: string) {
   return useQuery({
     queryKey: ["trips", id],
     queryFn: async () => {
-      const { data } = await supabase
-        .from("trips")
-        .select("*")
-        .eq("id", id)
-        .single();
+      const { data } = await supabase.from("trips").select("*").eq("id", id).single();
       return data as Trip | null;
     },
     enabled: !!id,
@@ -36,7 +32,12 @@ export function useCreateTrip() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (trip: { nome: string; destino: string; data_inicio: string; data_fim: string }) => {
+    mutationFn: async (trip: {
+      nome: string;
+      destino: string;
+      data_inicio: string;
+      data_fim: string;
+    }) => {
       const { data: userData } = await supabase.auth.getUser();
       if (!userData.user) throw new Error("Usuário não autenticado");
 

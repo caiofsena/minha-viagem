@@ -77,21 +77,17 @@ export default function NewTripPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-medium text-[#2D2A26]">Data de início</label>
-                <input
-                  type="date"
-                  className="input-warm"
-                  {...register("data_inicio")}
-                />
-                {errors.data_inicio && <p className="text-xs text-red-500">{errors.data_inicio.message}</p>}
+                <input type="date" className="input-warm" {...register("data_inicio")} />
+                {errors.data_inicio && (
+                  <p className="text-xs text-red-500">{errors.data_inicio.message}</p>
+                )}
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-medium text-[#2D2A26]">Data de fim</label>
-                <input
-                  type="date"
-                  className="input-warm"
-                  {...register("data_fim")}
-                />
-                {errors.data_fim && <p className="text-xs text-red-500">{errors.data_fim.message}</p>}
+                <input type="date" className="input-warm" {...register("data_fim")} />
+                {errors.data_fim && (
+                  <p className="text-xs text-red-500">{errors.data_fim.message}</p>
+                )}
               </div>
             </div>
 
@@ -105,11 +101,7 @@ export default function NewTripPage() {
               >
                 Cancelar
               </button>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-primary"
-              >
+              <button type="submit" disabled={isSubmitting} className="btn-primary">
                 {isSubmitting ? "Criando..." : "Criar Viagem"}
               </button>
             </div>

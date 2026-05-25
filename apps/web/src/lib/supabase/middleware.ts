@@ -23,9 +23,7 @@ export async function updateSession(request: NextRequest) {
           options?: Record<string, unknown>;
         }[]
       ) {
-        cookiesToSet.forEach(({ name, value }) =>
-          request.cookies.set(name, value)
-        );
+        cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
         supabaseResponse = NextResponse.next({ request });
         cookiesToSet.forEach(({ name, value, options }) =>
           supabaseResponse.cookies.set(
@@ -45,12 +43,8 @@ export async function updateSession(request: NextRequest) {
   const protectedPaths = ["/trips", "/dashboard"];
   const authPaths = ["/login", "/register"];
 
-  const isProtected = protectedPaths.some((p) =>
-    request.nextUrl.pathname.startsWith(p)
-  );
-  const isAuthPage = authPaths.some((p) =>
-    request.nextUrl.pathname.startsWith(p)
-  );
+  const isProtected = protectedPaths.some((p) => request.nextUrl.pathname.startsWith(p));
+  const isAuthPage = authPaths.some((p) => request.nextUrl.pathname.startsWith(p));
   const isLanding = request.nextUrl.pathname === "/";
 
   if (!user && isProtected) {

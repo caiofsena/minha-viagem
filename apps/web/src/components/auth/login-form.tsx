@@ -62,9 +62,7 @@ export function LoginForm() {
                 className="input-warm"
                 {...register("email")}
               />
-              {errors.email && (
-                <p className="text-xs text-red-500">{errors.email.message}</p>
-              )}
+              {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
             </div>
 
             <div className="flex flex-col gap-2">
@@ -75,20 +73,12 @@ export function LoginForm() {
                 className="input-warm"
                 {...register("password")}
               />
-              {errors.password && (
-                <p className="text-xs text-red-500">{errors.password.message}</p>
-              )}
+              {errors.password && <p className="text-xs text-red-500">{errors.password.message}</p>}
             </div>
 
-            {errors.root && (
-              <p className="text-sm text-red-500">{errors.root.message}</p>
-            )}
+            {errors.root && <p className="text-sm text-red-500">{errors.root.message}</p>}
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="btn-primary w-full"
-            >
+            <button type="submit" disabled={isSubmitting} className="btn-primary w-full">
               {isSubmitting ? "Entrando..." : "Entrar"}
             </button>
           </form>

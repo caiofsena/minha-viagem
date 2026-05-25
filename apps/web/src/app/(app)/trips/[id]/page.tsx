@@ -85,23 +85,33 @@ export default function TripDetailPage({ params }: { params: Promise<{ id: strin
   };
 
   const filteredPlaces =
-    activeFilters.size > 0
-      ? places.filter((p) => activeFilters.has(p.categoria))
-      : places;
+    activeFilters.size > 0 ? places.filter((p) => activeFilters.has(p.categoria)) : places;
 
   if (authLoading || !user) return null;
 
   const mapCenter: [number, number] =
-    places.length > 0
-      ? [places[0].lat, places[0].lng]
-      : [-15.7934, -47.8823];
+    places.length > 0 ? [places[0].lat, places[0].lng] : [-15.7934, -47.8823];
 
   const startDate = trip?.data_inicio ? new Date(trip.data_inicio) : null;
   const endDate = trip?.data_fim ? new Date(trip.data_fim) : null;
-  const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-  const dateRange = startDate && endDate
-    ? `${startDate.getDate()} — ${endDate.getDate()} de ${months[endDate.getMonth()]}, ${endDate.getFullYear()}`
-    : "";
+  const months = [
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julho",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro",
+  ];
+  const dateRange =
+    startDate && endDate
+      ? `${startDate.getDate()} — ${endDate.getDate()} de ${months[endDate.getMonth()]}, ${endDate.getFullYear()}`
+      : "";
 
   return (
     <div className="flex h-[calc(100vh-3.5rem)] bg-[#F2EDE7]">

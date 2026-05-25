@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { createClient } from "@/lib/supabase/client";
 import type { Place } from "@minha-viagem/shared";
 
 interface TripState {

@@ -20,11 +20,7 @@ export async function createClient() {
           }[]
         ) {
           cookiesToSet.forEach(({ name, value, options }) =>
-            cookieStore.set(
-              name,
-              value,
-              options as Record<string, string | number | boolean>
-            )
+            cookieStore.set(name, value, options as Record<string, string | number | boolean>)
           );
         },
       },

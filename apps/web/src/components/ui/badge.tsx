@@ -1,4 +1,4 @@
-import { tv, type VariantProps } from "@/lib/utils";
+import { tv } from "@/lib/utils";
 import type { HTMLAttributes } from "react";
 
 const badge = tv({
@@ -20,9 +20,7 @@ export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 function Badge({ className, variant, ...props }: BadgeProps) {
-  return (
-    <div className={badge({ variant, className })} {...props} />
-  );
+  return <div className={badge({ variant, className })} {...props} />;
 }
 
 export { Badge, badge };

@@ -83,11 +83,7 @@ export function PlaceForm({ open, onClose, onSubmit, initialData, title }: Place
         <form onSubmit={handleSubmit(handleFormSubmit)} className="flex flex-col gap-5 px-6 py-6">
           <div className="flex flex-col gap-2">
             <label className="text-sm font-medium text-[#2D2A26]">Nome do local</label>
-            <input
-              placeholder="Ex: Torre Eiffel"
-              className="input-warm"
-              {...register("nome")}
-            />
+            <input placeholder="Ex: Torre Eiffel" className="input-warm" {...register("nome")} />
             {errors.nome && <p className="text-xs text-red-500">{errors.nome.message}</p>}
           </div>
 
@@ -103,7 +99,9 @@ export function PlaceForm({ open, onClose, onSubmit, initialData, title }: Place
                   onChange={field.onChange}
                 >
                   {(Object.entries(CATEGORY_LABELS) as [Category, string][]).map(([key, label]) => (
-                    <option key={key} value={key}>{label}</option>
+                    <option key={key} value={key}>
+                      {label}
+                    </option>
                   ))}
                 </select>
               )}
@@ -113,56 +111,32 @@ export function PlaceForm({ open, onClose, onSubmit, initialData, title }: Place
 
           <div className="flex flex-col gap-2">
             <label className="text-sm font-medium text-[#2D2A26]">Data</label>
-            <input
-              type="date"
-              className="input-warm"
-              {...register("data")}
-            />
+            <input type="date" className="input-warm" {...register("data")} />
             {errors.data && <p className="text-xs text-red-500">{errors.data.message}</p>}
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-2">
               <label className="text-sm font-medium text-[#2D2A26]">Horário de entrada</label>
-              <input
-                type="time"
-                className="input-warm"
-                {...register("hora_entrada")}
-              />
+              <input type="time" className="input-warm" {...register("hora_entrada")} />
             </div>
             <div className="flex flex-col gap-2">
               <label className="text-sm font-medium text-[#2D2A26]">Horário de saída</label>
-              <input
-                type="time"
-                className="input-warm"
-                {...register("hora_saida")}
-              />
+              <input type="time" className="input-warm" {...register("hora_saida")} />
             </div>
           </div>
 
           <div className="flex flex-col gap-2">
             <label className="text-sm font-medium text-[#2D2A26]">Notas</label>
-            <input
-              placeholder="Observações..."
-              className="input-warm"
-              {...register("notas")}
-            />
+            <input placeholder="Observações..." className="input-warm" {...register("notas")} />
           </div>
 
           {/* Footer */}
           <div className="flex items-center justify-end gap-3 border-t border-[#E5DFD7] pt-4">
-            <button
-              type="button"
-              onClick={onClose}
-              className="btn-secondary"
-            >
+            <button type="button" onClick={onClose} className="btn-secondary">
               Cancelar
             </button>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="btn-primary"
-            >
+            <button type="submit" disabled={isSubmitting} className="btn-primary">
               {isSubmitting ? "Salvando..." : "Salvar"}
             </button>
           </div>
