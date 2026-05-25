@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/navbar";
 import { QueryProvider } from "@/components/providers/query-provider";
+import { AuthProvider } from "@/components/providers/auth-provider";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
@@ -18,8 +19,10 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
         <QueryProvider>
-          <Navbar />
-          <main>{children}</main>
+          <AuthProvider>
+            <Navbar />
+            <main>{children}</main>
+          </AuthProvider>
         </QueryProvider>
       </body>
     </html>
