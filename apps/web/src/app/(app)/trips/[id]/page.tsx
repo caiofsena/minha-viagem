@@ -11,19 +11,11 @@ import { ItineraryList } from "@/components/itinerary/itinerary-list";
 import { PlaceForm } from "@/components/forms/place-form";
 import type { PlaceFormData } from "@/components/forms/place-form";
 import type { Place, Category } from "@minha-viagem/shared";
+import { CATEGORY_LABELS } from "@minha-viagem/shared";
 import { ArrowLeft, Plus, Calendar } from "lucide-react";
 import { useState } from "react";
 
-const CATEGORIES: Category[] = ["hotel", "restaurante", "museu", "parque", "compras", "aeroporto", "outro"];
-const CATEGORY_LABELS: Record<Category, string> = {
-  hotel: "Hotel",
-  restaurante: "Restaurante",
-  museu: "Museu",
-  parque: "Parque",
-  compras: "Compras",
-  aeroporto: "Aeroporto",
-  outro: "Outro",
-};
+const CATEGORIES: Category[] = Object.keys(CATEGORY_LABELS) as Category[];
 
 export default function TripDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);

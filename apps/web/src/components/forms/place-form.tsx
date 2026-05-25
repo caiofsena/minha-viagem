@@ -148,26 +148,25 @@ export function PlaceForm({ open, onClose, onSubmit, initialData, title }: Place
               {...register("notas")}
             />
           </div>
-        </form>
 
-        {/* Footer */}
-        <div className="flex items-center justify-end gap-3 border-t border-[#E5DFD7] px-6 py-4">
-          <button
-            type="button"
-            onClick={onClose}
-            className="btn-secondary"
-          >
-            Cancelar
-          </button>
-          <button
-            type="submit"
-            onClick={handleSubmit(handleFormSubmit)}
-            disabled={isSubmitting}
-            className="btn-primary"
-          >
-            {isSubmitting ? "Salvando..." : "Salvar"}
-          </button>
-        </div>
+          {/* Footer */}
+          <div className="flex items-center justify-end gap-3 border-t border-[#E5DFD7] pt-4">
+            <button
+              type="button"
+              onClick={onClose}
+              className="btn-secondary"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn-primary"
+            >
+              {isSubmitting ? "Salvando..." : "Salvar"}
+            </button>
+          </div>
+        </form>
       </div>
     </Dialog>
   );
