@@ -1,0 +1,1112 @@
+{
+  "version": "2.11",
+  "variables": {
+    "surface-primary": { "type": "color", "value": "#FFFFFF" },
+    "surface-inverse": { "type": "color", "value": "#1A1A1A" },
+    "foreground-primary": { "type": "color", "value": "#1A1A1A" },
+    "foreground-secondary": { "type": "color", "value": "#666666" },
+    "foreground-muted": { "type": "color", "value": "#999999" },
+    "foreground-inverse": { "type": "color", "value": "#FFFFFF" },
+    "border-subtle": { "type": "color", "value": "#E4E4E7" },
+    "accent-primary": { "type": "color", "value": "#0066FF" },
+    "bg-zinc-50": { "type": "color", "value": "#FAFAFA" },
+    "bg-zinc-100": { "type": "color", "value": "#F4F4F5" },
+    "bg-zinc-200": { "type": "color", "value": "#E4E4E7" },
+    "bg-zinc-900": { "type": "color", "value": "#18181B" },
+    "text-zinc-50": { "type": "color", "value": "#FAFAFA" },
+    "text-zinc-400": { "type": "color", "value": "#A1A1AA" },
+    "text-zinc-500": { "type": "color", "value": "#71717A" },
+    "cat-hotel": { "type": "color", "value": "#6366F1" },
+    "cat-restaurante": { "type": "color", "value": "#F97316" },
+    "cat-museu": { "type": "color", "value": "#8B5CF6" },
+    "cat-parque": { "type": "color", "value": "#22C55E" }
+  },
+  "children": [
+    {
+      "id": "login-screen",
+      "type": "frame",
+      "name": "Login",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900,
+      "fill": "$bg-zinc-50",
+      "clip": true,
+      "layout": "none",
+      "children": [
+        {
+          "id": "login-navbar",
+          "type": "frame",
+          "name": "Navbar",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56,
+          "fill": "$surface-primary",
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "space_between",
+          "padding": [0, 24],
+          "children": [
+            {
+              "id": "login-logo",
+              "type": "frame",
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 8,
+              "children": [
+                { "type": "icon_font", "iconFontName": "map-pin", "iconFontFamily": "lucide", "width": 20, "height": 20, "fill": "$foreground-primary" },
+                { "type": "text", "content": "Minha Viagem", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "600", "fill": "$foreground-primary" }
+              ]
+            },
+            {
+              "id": "login-nav-links",
+              "type": "frame",
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": [8, 16],
+                  "cornerRadius": 6,
+                  "children": [
+                    { "type": "text", "content": "Entrar", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": [8, 16],
+                  "cornerRadius": 6,
+                  "fill": "$bg-zinc-900",
+                  "children": [
+                    { "type": "text", "content": "Criar Conta", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$text-zinc-50" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "login-form-container",
+          "type": "frame",
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "login-card",
+              "type": "frame",
+              "name": "Login Card",
+              "width": 400,
+              "layout": "vertical",
+              "gap": 0,
+              "padding": 0,
+              "cornerRadius": 8,
+              "fill": "$surface-primary",
+              "stroke": { "thickness": 1, "fill": "$border-subtle" },
+              "children": [
+                {
+                  "type": "frame",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 24,
+                  "children": [
+                    { "type": "text", "content": "Entrar", "fontFamily": "Inter", "fontSize": 18, "fontWeight": "600", "fill": "$foreground-primary" }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [0, 24, 24, 24],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        { "type": "text", "content": "Email", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "padding": [8, 12],
+                          "height": 40,
+                          "cornerRadius": 6,
+                          "fill": "$surface-primary",
+                          "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                          "children": [
+                            { "type": "text", "content": "seu@email.com", "fontFamily": "Inter", "fontSize": 14, "fill": "$foreground-muted" }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        { "type": "text", "content": "Senha", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "padding": [8, 12],
+                          "height": 40,
+                          "cornerRadius": 6,
+                          "fill": "$surface-primary",
+                          "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                          "children": [
+                            { "type": "text", "content": "••••••••", "fontFamily": "Inter", "fontSize": 14, "fill": "$foreground-primary" }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "layout": "horizontal",
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "padding": [10, 16],
+                      "height": 40,
+                      "cornerRadius": 6,
+                      "fill": "$bg-zinc-900",
+                      "children": [
+                        { "type": "text", "content": "Entrar", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$text-zinc-50" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "layout": "horizontal",
+              "justifyContent": "center",
+              "padding": [16, 0],
+              "children": [
+                { "type": "text", "content": "Não tem conta? ", "fontFamily": "Inter", "fontSize": 14, "fill": "$foreground-muted" },
+                { "type": "text", "content": "Criar conta", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "register-screen",
+      "type": "frame",
+      "name": "Register",
+      "x": 1480,
+      "y": 0,
+      "width": 1440,
+      "height": 900,
+      "fill": "$bg-zinc-50",
+      "clip": true,
+      "layout": "none",
+      "children": [
+        {
+          "id": "register-navbar",
+          "type": "frame",
+          "name": "Navbar",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56,
+          "fill": "$surface-primary",
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "space_between",
+          "padding": [0, 24],
+          "children": [
+            {
+              "id": "register-logo",
+              "type": "frame",
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 8,
+              "children": [
+                { "type": "icon_font", "iconFontName": "map-pin", "iconFontFamily": "lucide", "width": 20, "height": 20, "fill": "$foreground-primary" },
+                { "type": "text", "content": "Minha Viagem", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "600", "fill": "$foreground-primary" }
+              ]
+            },
+            {
+              "id": "register-nav-links",
+              "type": "frame",
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": [8, 16],
+                  "cornerRadius": 6,
+                  "children": [
+                    { "type": "text", "content": "Entrar", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": [8, 16],
+                  "cornerRadius": 6,
+                  "fill": "$bg-zinc-900",
+                  "children": [
+                    { "type": "text", "content": "Criar Conta", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$text-zinc-50" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "register-form-container",
+          "type": "frame",
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "register-card",
+              "type": "frame",
+              "name": "Register Card",
+              "width": 400,
+              "layout": "vertical",
+              "gap": 0,
+              "padding": 0,
+              "cornerRadius": 8,
+              "fill": "$surface-primary",
+              "stroke": { "thickness": 1, "fill": "$border-subtle" },
+              "children": [
+                {
+                  "type": "frame",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 24,
+                  "children": [
+                    { "type": "text", "content": "Criar Conta", "fontFamily": "Inter", "fontSize": 18, "fontWeight": "600", "fill": "$foreground-primary" }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [0, 24, 24, 24],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "width": 352,
+                      "children": [
+                        { "type": "text", "content": "Email", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "padding": [8, 12],
+                          "height": 40,
+                          "cornerRadius": 6,
+                          "fill": "$surface-primary",
+                          "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                          "children": [
+                            { "type": "text", "content": "seu@email.com", "fontFamily": "Inter", "fontSize": 14, "fill": "$foreground-muted" }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "width": 352,
+                      "children": [
+                        { "type": "text", "content": "Senha", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "padding": [8, 12],
+                          "height": 40,
+                          "cornerRadius": 6,
+                          "fill": "$surface-primary",
+                          "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                          "children": [
+                            { "type": "text", "content": "Mínimo 6 caracteres", "fontFamily": "Inter", "fontSize": 14, "fill": "$foreground-muted" }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "layout": "horizontal",
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "padding": [10, 16],
+                      "height": 40,
+                      "cornerRadius": 6,
+                      "fill": "$bg-zinc-900",
+                      "children": [
+                        { "type": "text", "content": "Criar Conta", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$text-zinc-50" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "layout": "horizontal",
+              "justifyContent": "center",
+              "padding": [16, 0],
+              "children": [
+                { "type": "text", "content": "Já tem conta? ", "fontFamily": "Inter", "fontSize": 14, "fill": "$foreground-muted" },
+                { "type": "text", "content": "Entrar", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dashboard-screen",
+      "type": "frame",
+      "name": "Dashboard",
+      "x": 2960,
+      "y": 0,
+      "width": 1440,
+      "height": 900,
+      "fill": "$bg-zinc-50",
+      "clip": true,
+      "layout": "none",
+      "children": [
+        {
+          "id": "dashboard-navbar",
+          "type": "frame",
+          "name": "Navbar",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56,
+          "fill": "$surface-primary",
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "space_between",
+          "padding": [0, 24],
+          "children": [
+            {
+              "id": "dashboard-logo",
+              "type": "frame",
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 8,
+              "children": [
+                { "type": "icon_font", "iconFontName": "map-pin", "iconFontFamily": "lucide", "width": 20, "height": 20, "fill": "$foreground-primary" },
+                { "type": "text", "content": "Minha Viagem", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "600", "fill": "$foreground-primary" }
+              ]
+            },
+            {
+              "id": "dashboard-nav-links",
+              "type": "frame",
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": [8, 16],
+                  "cornerRadius": 6,
+                  "children": [
+                    { "type": "text", "content": "Minhas Viagens", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": [8, 16],
+                  "cornerRadius": 6,
+                  "fill": "$bg-zinc-900",
+                  "children": [
+                    { "type": "icon_font", "iconFontName": "plus", "iconFontFamily": "lucide", "width": 14, "height": 14, "fill": "$text-zinc-50" },
+                    { "type": "text", "content": "Nova Viagem", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$text-zinc-50" }
+                  ]
+                },
+                { "type": "text", "content": "user@email.com", "fontFamily": "Inter", "fontSize": 14, "fill": "$text-zinc-500" },
+                {
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": 8,
+                  "cornerRadius": 6,
+                  "children": [
+                    { "type": "icon_font", "iconFontName": "log-out", "iconFontFamily": "lucide", "width": 16, "height": 16, "fill": "$foreground-secondary" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dashboard-content",
+          "type": "frame",
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844,
+          "layout": "vertical",
+          "padding": [32, 128],
+          "gap": 32,
+          "children": [
+            {
+              "type": "frame",
+              "layout": "horizontal",
+              "alignItems": "center",
+              "justifyContent": "space_between",
+              "children": [
+                { "type": "text", "content": "Minhas Viagens", "fontFamily": "Inter", "fontSize": 24, "fontWeight": "700", "fill": "$foreground-primary" }
+              ]
+            },
+            {
+              "type": "frame",
+              "layout": "horizontal",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "name": "Paris Trip",
+                  "width": 300,
+                  "layout": "vertical",
+                  "gap": 0,
+                  "cornerRadius": 8,
+                  "fill": "$surface-primary",
+                  "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 24,
+                      "children": [
+                        { "type": "text", "content": "Férias em Paris", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "600", "fill": "$foreground-primary" },
+                        { "type": "text", "content": "Paris, França", "fontFamily": "Inter", "fontSize": 14, "fill": "$text-zinc-500" }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "padding": [0, 24, 24, 24],
+                      "children": [
+                        { "type": "text", "content": "15/07/2026 — 22/07/2026", "fontFamily": "Inter", "fontSize": 12, "fill": "$text-zinc-400" }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "name": "Tokyo Trip",
+                  "width": 300,
+                  "layout": "vertical",
+                  "gap": 0,
+                  "cornerRadius": 8,
+                  "fill": "$surface-primary",
+                  "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 24,
+                      "children": [
+                        { "type": "text", "content": "Aventura em Tóquio", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "600", "fill": "$foreground-primary" },
+                        { "type": "text", "content": "Tóquio, Japão", "fontFamily": "Inter", "fontSize": 14, "fill": "$text-zinc-500" }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "padding": [0, 24, 24, 24],
+                      "children": [
+                        { "type": "text", "content": "01/09/2026 — 10/09/2026", "fontFamily": "Inter", "fontSize": 12, "fill": "$text-zinc-400" }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "name": "Rio Trip",
+                  "width": 300,
+                  "layout": "vertical",
+                  "gap": 0,
+                  "cornerRadius": 8,
+                  "fill": "$surface-primary",
+                  "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 24,
+                      "children": [
+                        { "type": "text", "content": "Réveillon no Rio", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "600", "fill": "$foreground-primary" },
+                        { "type": "text", "content": "Rio de Janeiro, Brasil", "fontFamily": "Inter", "fontSize": 14, "fill": "$text-zinc-500" }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "padding": [0, 24, 24, 24],
+                      "children": [
+                        { "type": "text", "content": "28/12/2026 — 03/01/2027", "fontFamily": "Inter", "fontSize": 12, "fill": "$text-zinc-400" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trip-detail-screen",
+      "type": "frame",
+      "name": "Trip Detail",
+      "x": 4440,
+      "y": 0,
+      "width": 1440,
+      "height": 900,
+      "fill": "$bg-zinc-50",
+      "clip": true,
+      "layout": "none",
+      "children": [
+        {
+          "id": "trip-navbar",
+          "type": "frame",
+          "name": "Navbar",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56,
+          "fill": "$surface-primary",
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "space_between",
+          "padding": [0, 24],
+          "children": [
+            {
+              "id": "trip-logo",
+              "type": "frame",
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 8,
+              "children": [
+                { "type": "icon_font", "iconFontName": "map-pin", "iconFontFamily": "lucide", "width": 20, "height": 20, "fill": "$foreground-primary" },
+                { "type": "text", "content": "Minha Viagem", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "600", "fill": "$foreground-primary" }
+              ]
+            },
+            {
+              "id": "trip-nav-links",
+              "type": "frame",
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": [8, 16],
+                  "cornerRadius": 6,
+                  "children": [
+                    { "type": "text", "content": "Minhas Viagens", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": [8, 16],
+                  "cornerRadius": 6,
+                  "fill": "$bg-zinc-900",
+                  "children": [
+                    { "type": "icon_font", "iconFontName": "plus", "iconFontFamily": "lucide", "width": 14, "height": 14, "fill": "$text-zinc-50" },
+                    { "type": "text", "content": "Nova Viagem", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$text-zinc-50" }
+                  ]
+                },
+                { "type": "text", "content": "user@email.com", "fontFamily": "Inter", "fontSize": 14, "fill": "$text-zinc-500" },
+                {
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": 8,
+                  "cornerRadius": 6,
+                  "children": [
+                    { "type": "icon_font", "iconFontName": "log-out", "iconFontFamily": "lucide", "width": 16, "height": 16, "fill": "$foreground-secondary" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "trip-main",
+          "type": "frame",
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844,
+          "layout": "horizontal",
+          "children": [
+            {
+              "id": "trip-map-area",
+              "type": "frame",
+              "name": "Map Area",
+              "width": 720,
+              "height": 844,
+              "fill": "#E8E8E8",
+              "layout": "none",
+              "children": [
+                { "type": "ellipse", "x": 200, "y": 150, "width": 24, "height": 24, "fill": "$cat-hotel", "stroke": { "thickness": 3, "fill": "$surface-primary" } },
+                { "type": "ellipse", "x": 350, "y": 280, "width": 24, "height": 24, "fill": "$cat-restaurante", "stroke": { "thickness": 3, "fill": "$surface-primary" } },
+                { "type": "ellipse", "x": 150, "y": 350, "width": 24, "height": 24, "fill": "$cat-museu", "stroke": { "thickness": 3, "fill": "$surface-primary" } },
+                { "type": "ellipse", "x": 450, "y": 180, "width": 24, "height": 24, "fill": "$cat-parque", "stroke": { "thickness": 3, "fill": "$surface-primary" } },
+                {
+                  "type": "frame",
+                  "name": "Voltar",
+                  "x": 16,
+                  "y": 16,
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "gap": 4,
+                  "padding": [6, 12],
+                  "cornerRadius": 6,
+                  "fill": "$surface-primary",
+                  "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                  "children": [
+                    { "type": "icon_font", "iconFontName": "arrow-left", "iconFontFamily": "lucide", "width": 14, "height": 14, "fill": "$foreground-primary" },
+                    { "type": "text", "content": "Voltar", "fontFamily": "Inter", "fontSize": 13, "fontWeight": "500", "fill": "$foreground-primary" }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "trip-sidebar",
+              "type": "frame",
+              "name": "Itinerary Sidebar",
+              "width": 720,
+              "height": 844,
+              "fill": "$surface-primary",
+              "layout": "vertical",
+              "stroke": { "thickness": { "left": 1 }, "fill": "$border-subtle" },
+              "children": [
+                {
+                  "type": "frame",
+                  "layout": "vertical",
+                  "gap": 0,
+                  "padding": [16, 16, 16, 16],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "layout": "horizontal",
+                      "alignItems": "center",
+                      "justifyContent": "space_between",
+                      "children": [
+                        { "type": "text", "content": "Itinerário", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "600", "fill": "$foreground-primary" },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "gap": 4,
+                          "padding": [6, 12],
+                          "cornerRadius": 6,
+                          "fill": "$bg-zinc-900",
+                          "children": [
+                            { "type": "icon_font", "iconFontName": "plus", "iconFontFamily": "lucide", "width": 14, "height": 14, "fill": "$text-zinc-50" },
+                            { "type": "text", "content": "Adicionar", "fontFamily": "Inter", "fontSize": 13, "fontWeight": "500", "fill": "$text-zinc-50" }
+                          ]
+                        }
+                      ]
+                    },
+                    { "type": "rectangle", "width": "fill_container", "height": 1, "fill": "$border-subtle" },
+                    {
+                      "type": "frame",
+                      "layout": "horizontal",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "padding": [12, 0, 0, 0],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "padding": [4, 10],
+                          "cornerRadius": 999,
+                          "fill": "$bg-zinc-900",
+                          "children": [
+                            { "type": "text", "content": "Hotel", "fontFamily": "Inter", "fontSize": 12, "fontWeight": "500", "fill": "$text-zinc-50" }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "padding": [4, 10],
+                          "cornerRadius": 999,
+                          "fill": "$bg-zinc-900",
+                          "children": [
+                            { "type": "text", "content": "Restaurante", "fontFamily": "Inter", "fontSize": 12, "fontWeight": "500", "fill": "$text-zinc-50" }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "padding": [4, 10],
+                          "cornerRadius": 999,
+                          "fill": "$bg-zinc-100",
+                          "children": [
+                            { "type": "text", "content": "Museu", "fontFamily": "Inter", "fontSize": 12, "fontWeight": "500", "fill": "$text-zinc-500" }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "padding": [4, 10],
+                          "cornerRadius": 999,
+                          "fill": "$bg-zinc-100",
+                          "children": [
+                            { "type": "text", "content": "Parque", "fontFamily": "Inter", "fontSize": 12, "fontWeight": "500", "fill": "$text-zinc-500" }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "padding": [4, 10],
+                          "cornerRadius": 999,
+                          "fill": "$bg-zinc-100",
+                          "children": [
+                            { "type": "text", "content": "Compras", "fontFamily": "Inter", "fontSize": 12, "fontWeight": "500", "fill": "$text-zinc-500" }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "padding": [4, 10],
+                          "cornerRadius": 999,
+                          "fill": "$bg-zinc-100",
+                          "children": [
+                            { "type": "text", "content": "Aeroporto", "fontFamily": "Inter", "fontSize": 12, "fontWeight": "500", "fill": "$text-zinc-500" }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": [16, 16],
+                  "children": [
+                    { "type": "text", "content": "SEGUNDA-FEIRA, 15 DE JULHO", "fontFamily": "Inter", "fontSize": 11, "fontWeight": "600", "fill": "$text-zinc-500", "letterSpacing": 0.5 },
+                    {
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "start",
+                          "gap": 12,
+                          "padding": 12,
+                          "cornerRadius": 8,
+                          "fill": "$bg-zinc-50",
+                          "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "width": 16,
+                              "height": 16,
+                              "cornerRadius": 4,
+                              "fill": "$bg-zinc-900",
+                              "children": [
+                                { "type": "icon_font", "iconFontName": "check", "iconFontFamily": "lucide", "width": 12, "height": 12, "fill": "$text-zinc-50" }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "layout": "vertical",
+                              "gap": 4,
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "layout": "horizontal",
+                                  "alignItems": "center",
+                                  "gap": 8,
+                                  "children": [
+                                    { "type": "text", "content": "Hotel Le Marais", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" },
+                                    {
+                                      "type": "frame",
+                                      "layout": "horizontal",
+                                      "alignItems": "center",
+                                      "justifyContent": "center",
+                                      "padding": [2, 8],
+                                      "cornerRadius": 999,
+                                      "fill": "$cat-hotel20",
+                                      "stroke": { "thickness": 1, "fill": "$cat-hotel40" },
+                                      "children": [
+                                        { "type": "text", "content": "Hotel", "fontFamily": "Inter", "fontSize": 11, "fontWeight": "600", "fill": "$cat-hotel" }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "layout": "horizontal",
+                                  "alignItems": "center",
+                                  "gap": 4,
+                                  "children": [
+                                    { "type": "text", "content": "14:00 — 18:00", "fontFamily": "Inter", "fontSize": 12, "fill": "$text-zinc-500" }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "start",
+                          "gap": 12,
+                          "padding": 12,
+                          "cornerRadius": 8,
+                          "fill": "$surface-primary",
+                          "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "width": 16,
+                              "height": 16,
+                              "cornerRadius": 4,
+                              "fill": "$surface-primary",
+                              "stroke": { "thickness": 1, "fill": "$bg-zinc-200" }
+                            },
+                            {
+                              "type": "frame",
+                              "layout": "vertical",
+                              "gap": 4,
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "layout": "horizontal",
+                                  "alignItems": "center",
+                                  "gap": 8,
+                                  "children": [
+                                    { "type": "text", "content": "Le Petit Bistro", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" },
+                                    {
+                                      "type": "frame",
+                                      "layout": "horizontal",
+                                      "alignItems": "center",
+                                      "justifyContent": "center",
+                                      "padding": [2, 8],
+                                      "cornerRadius": 999,
+                                      "fill": "$cat-restaurante20",
+                                      "stroke": { "thickness": 1, "fill": "$cat-restaurante40" },
+                                      "children": [
+                                        { "type": "text", "content": "Restaurante", "fontFamily": "Inter", "fontSize": 11, "fontWeight": "600", "fill": "$cat-restaurante" }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "layout": "horizontal",
+                                  "alignItems": "center",
+                                  "gap": 4,
+                                  "children": [
+                                    { "type": "text", "content": "19:30 — 21:00", "fontFamily": "Inter", "fontSize": 12, "fill": "$text-zinc-500" }
+                                  ]
+                                },
+                                { "type": "text", "content": "Reserva confirmada para 2 pessoas", "fontFamily": "Inter", "fontSize": 12, "fill": "$text-zinc-400" }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    { "type": "text", "content": "TERÇA-FEIRA, 16 DE JULHO", "fontFamily": "Inter", "fontSize": 11, "fontWeight": "600", "fill": "$text-zinc-500", "letterSpacing": 0.5 },
+                    {
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "start",
+                          "gap": 12,
+                          "padding": 12,
+                          "cornerRadius": 8,
+                          "fill": "$surface-primary",
+                          "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "width": 16,
+                              "height": 16,
+                              "cornerRadius": 4,
+                              "fill": "$surface-primary",
+                              "stroke": { "thickness": 1, "fill": "$bg-zinc-200" }
+                            },
+                            {
+                              "type": "frame",
+                              "layout": "vertical",
+                              "gap": 4,
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "layout": "horizontal",
+                                  "alignItems": "center",
+                                  "gap": 8,
+                                  "children": [
+                                    { "type": "text", "content": "Museu do Louvre", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" },
+                                    {
+                                      "type": "frame",
+                                      "layout": "horizontal",
+                                      "alignItems": "center",
+                                      "justifyContent": "center",
+                                      "padding": [2, 8],
+                                      "cornerRadius": 999,
+                                      "fill": "$cat-museu20",
+                                      "stroke": { "thickness": 1, "fill": "$cat-museu40" },
+                                      "children": [
+                                        { "type": "text", "content": "Museu", "fontFamily": "Inter", "fontSize": 11, "fontWeight": "600", "fill": "$cat-museu" }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "layout": "horizontal",
+                                  "alignItems": "center",
+                                  "gap": 4,
+                                  "children": [
+                                    { "type": "text", "content": "09:00 — 13:00", "fontFamily": "Inter", "fontSize": 12, "fill": "$text-zinc-500" }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "alignItems": "start",
+                          "gap": 12,
+                          "padding": 12,
+                          "cornerRadius": 8,
+                          "fill": "$surface-primary",
+                          "stroke": { "thickness": 1, "fill": "$border-subtle" },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "width": 16,
+                              "height": 16,
+                              "cornerRadius": 4,
+                              "fill": "$surface-primary",
+                              "stroke": { "thickness": 1, "fill": "$bg-zinc-200" }
+                            },
+                            {
+                              "type": "frame",
+                              "layout": "vertical",
+                              "gap": 4,
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "layout": "horizontal",
+                                  "alignItems": "center",
+                                  "gap": 8,
+                                  "children": [
+                                    { "type": "text", "content": "Jardin du Luxembourg", "fontFamily": "Inter", "fontSize": 14, "fontWeight": "500", "fill": "$foreground-primary" },
+                                    {
+                                      "type": "frame",
+                                      "layout": "horizontal",
+                                      "alignItems": "center",
+                                      "justifyContent": "center",
+                                      "padding": [2, 8],
+                                      "cornerRadius": 999,
+                                      "fill": "$cat-parque20",
+                                      "stroke": { "thickness": 1, "fill": "$cat-parque40" },
+                                      "children": [
+                                        { "type": "text", "content": "Parque", "fontFamily": "Inter", "fontSize": 11, "fontWeight": "600", "fill": "$cat-parque" }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "layout": "horizontal",
+                                  "alignItems": "center",
+                                  "gap": 4,
+                                  "children": [
+                                    { "type": "text", "content": "14:30 — 17:00", "fontFamily": "Inter", "fontSize": 12, "fill": "$text-zinc-500" }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
