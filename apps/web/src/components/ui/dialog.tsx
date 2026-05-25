@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useCallback, type ReactNode } from "react";
 import { X } from "lucide-react";
 
 interface DialogProps {
@@ -11,35 +11,33 @@ interface DialogProps {
 }
 
 export function Dialog({ open, onClose, title, children }: DialogProps) {
-  const overlayRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
-  useEffect(() => {
-    function handleKeyDown(e: KeyboardEvent) {
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
-    }
-    if (open) document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [open, onClose]);
+    },
+    [onClose]
+  );
+
+  useEffect(() => {
+    if (!open) return;
+
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = prev;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open, handleKeyDown]);
 
   if (!open) return null;
 
   return (
     <div
-      ref={overlayRef}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
       onClick={(e) => {
-        if (e.target === overlayRef.current) onClose();
+        if (e.target === e.currentTarget) onClose();
       }}
     >
       <div className="w-full max-w-lg rounded-lg border border-zinc-200 bg-white shadow-lg">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, use } from "react";
+import { use } from "react";
 import { useRouter } from "next/navigation";
 import { useTripStore } from "@/stores/tripStore";
 import { useAuthStore } from "@/stores/authStore";
@@ -24,12 +24,6 @@ export default function TripDetailPage({ params }: { params: Promise<{ id: strin
   const removePlace = useRemovePlace();
   const router = useRouter();
   const [activeFilters, setActiveFilters] = useState<Set<Category>>(new Set());
-
-  useEffect(() => {
-    if (!authLoading && !user) {
-      router.push("/login");
-    }
-  }, [user, authLoading, router]);
 
   const handleMapClick = (lat: number, lng: number) => {
     openPlaceForm(lat, lng);

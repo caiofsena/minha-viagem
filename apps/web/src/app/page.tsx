@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/authStore";
 import { useTrips } from "@/hooks/useTrips";
 import { Button } from "@/components/ui/button";
@@ -12,13 +10,6 @@ import { Plus, MapPin } from "lucide-react";
 export default function HomePage() {
   const { user, loading } = useAuthStore();
   const { data: trips = [], isLoading } = useTrips();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push("/login");
-    }
-  }, [user, loading, router]);
 
   if (loading || !user) return null;
 

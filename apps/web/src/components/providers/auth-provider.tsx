@@ -1,14 +1,21 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useAuthStore } from "@/stores/authStore";
 import { createClient } from "@/lib/supabase/client";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const { loadUser, setUser } = useAuthStore();
-  const supabase = createClient();
+  const loadUser = useAuthStore((s) => s.loadUser);
+  const setUser = useAuthStore((s) => s.setUser);
+  const supabaseRef = useRef<SupabaseClient | null>(null);
+
+  if (!supabaseRef.current) {
+    supabaseRef.current = createClient();
+  }
 
   useEffect(() => {
+    const supabase = supabaseRef.current!;
     loadUser();
 
     const { data } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -18,7 +25,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => {
       data.subscription.unsubscribe();
     };
-  }, [loadUser, setUser, supabase]);
+  }, []);
 
   return children;
 }
