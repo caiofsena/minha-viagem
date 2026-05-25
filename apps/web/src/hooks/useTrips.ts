@@ -37,9 +37,12 @@ export function useCreateTrip() {
 
   return useMutation({
     mutationFn: async (trip: { nome: string; destino: string; data_inicio: string; data_fim: string }) => {
+      const { data: userData } = await supabase.auth.getUser();
+      if (!userData.user) throw new Error("Usuário não autenticado");
+
       const { data, error } = await supabase
         .from("trips")
-        .insert(trip)
+        .insert({ ...trip, user_id: userData.user.id })
         .select()
         .single();
       if (error) throw error;
