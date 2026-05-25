@@ -14,7 +14,7 @@ export function Navbar() {
 
   async function handleSignOut() {
     await signOut();
-    router.push("/login");
+    router.push("/");
   }
 
   return (
@@ -28,7 +28,7 @@ export function Navbar() {
         <div className="hidden items-center gap-4 md:flex">
           {user ? (
             <>
-              <Link href="/">
+              <Link href="/dashboard">
                 <Button variant="ghost" size="sm">
                   Minhas Viagens
                 </Button>

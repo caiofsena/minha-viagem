@@ -20,7 +20,6 @@ export default function RootLayout({
       <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
         <QueryProvider>
           <AuthProvider>
-            <Navbar />
             <main>{children}</main>
           </AuthProvider>
         </QueryProvider>
