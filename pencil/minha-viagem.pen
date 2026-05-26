@@ -66,7 +66,7 @@
                   "id": "iJ1jE",
                   "fill": "$text-secondary",
                   "content": "Entrar",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 14,
                   "fontWeight": "500"
                 },
@@ -87,7 +87,7 @@
                       "id": "puT8X",
                       "fill": "#FFFFFF",
                       "content": "Criar Conta",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "600"
                     }
@@ -130,7 +130,7 @@
               "fill": "$text-primary",
               "content": "Planeje suas viagens de forma inteligente",
               "textAlign": "center",
-              "fontFamily": "Inter",
+              "fontFamily": "Montserrat",
               "fontSize": 48,
               "fontWeight": "800"
             },
@@ -140,7 +140,7 @@
               "fill": "$text-secondary",
               "content": "Organize roteiros, descubra lugares incríveis e compartilhe experiências com quem você ama.",
               "textAlign": "center",
-              "fontFamily": "Inter",
+              "fontFamily": "Montserrat",
               "fontSize": 18,
               "fontWeight": "normal"
             },
@@ -166,7 +166,7 @@
                       "id": "HWSLs",
                       "fill": "#FFFFFF",
                       "content": "Começar Agora",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 16,
                       "fontWeight": "600"
                     }
@@ -193,7 +193,7 @@
                       "id": "B1pbHb",
                       "fill": "$text-primary",
                       "content": "Saiba Mais",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 16,
                       "fontWeight": "500"
                     }
@@ -221,7 +221,7 @@
               "fill": "$text-primary",
               "content": "Por que usar o Minha Viagem?",
               "textAlign": "center",
-              "fontFamily": "Inter",
+              "fontFamily": "Montserrat",
               "fontSize": 32,
               "fontWeight": "700"
             },
@@ -271,7 +271,7 @@
                       "id": "TjdvI",
                       "fill": "$text-primary",
                       "content": "Mapa Interativo",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 18,
                       "fontWeight": "600"
                     },
@@ -281,7 +281,7 @@
                       "fill": "$text-secondary",
                       "content": "Visualize todos os seus lugares no mapa com marcadores coloridos por categoria.",
                       "lineHeight": 1.6,
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "normal"
                     }
@@ -327,7 +327,7 @@
                       "id": "ULAMH",
                       "fill": "$text-primary",
                       "content": "Timeline Organizada",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 18,
                       "fontWeight": "600"
                     },
@@ -337,7 +337,7 @@
                       "fill": "$text-secondary",
                       "content": "Veja seu itinerário dia a dia, com horários e detalhes de cada visita.",
                       "lineHeight": 1.6,
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "normal"
                     }
@@ -383,7 +383,7 @@
                       "id": "uCq6X",
                       "fill": "$text-primary",
                       "content": "Compartilhe Viagens",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 18,
                       "fontWeight": "600"
                     },
@@ -393,7 +393,7 @@
                       "fill": "$text-secondary",
                       "content": "Envie roteiros para amigos e família planejem juntos.",
                       "lineHeight": 1.6,
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "normal"
                     }
@@ -439,7 +439,7 @@
                       "id": "Hi9dr",
                       "fill": "$text-primary",
                       "content": "Acesso Mobile",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 18,
                       "fontWeight": "600"
                     },
@@ -449,7 +449,7 @@
                       "fill": "$text-secondary",
                       "content": "Consulte seu roteiro offline direto do celular, a qualquer momento.",
                       "lineHeight": 1.6,
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "normal"
                     }
@@ -477,7 +477,7 @@
               "fill": "$text-primary",
               "content": "Como funciona",
               "textAlign": "center",
-              "fontFamily": "Inter",
+              "fontFamily": "Montserrat",
               "fontSize": 32,
               "fontWeight": "700"
             },
@@ -748,7 +748,7 @@
                   "fill": "#FFFFFF",
                   "content": "Pronto para planejar sua próxima aventura?",
                   "textAlign": "center",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 28,
                   "fontWeight": "700"
                 },
@@ -758,7 +758,7 @@
                   "fill": "#FFFFFFCC",
                   "content": "Crie sua conta gratuita e comece a organizar suas viagens hoje mesmo.",
                   "textAlign": "center",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 16,
                   "fontWeight": "normal"
                 },
@@ -779,7 +779,7 @@
                       "id": "Yzef8",
                       "fill": "$accent-primary",
                       "content": "Criar Conta Gratuita",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 16,
                       "fontWeight": "600"
                     }
@@ -812,7 +812,7 @@
               "id": "pQ7Kz",
               "fill": "$text-muted",
               "content": "© 2026 Minha Viagem. Todos os direitos reservados.",
-              "fontFamily": "Inter",
+              "fontFamily": "Montserrat",
               "fontSize": 13,
               "fontWeight": "normal"
             },
@@ -826,7 +826,7 @@
                   "id": "D36Nuh",
                   "fill": "$text-secondary",
                   "content": "Termos",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 13,
                   "fontWeight": "normal"
                 },
@@ -835,7 +835,7 @@
                   "id": "DYkgs",
                   "fill": "$text-secondary",
                   "content": "Privacidade",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 13,
                   "fontWeight": "normal"
                 },
@@ -844,7 +844,7 @@
                   "id": "kDHev",
                   "fill": "$text-secondary",
                   "content": "Contato",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 13,
                   "fontWeight": "normal"
                 }
@@ -912,7 +912,7 @@
                   "id": "zfuFZ",
                   "fill": "$text-primary",
                   "content": "Minha Viagem",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 16,
                   "fontWeight": "600"
                 }
@@ -941,7 +941,7 @@
                       "id": "mnCxt",
                       "fill": "$text-secondary",
                       "content": "Entrar",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "500"
                     }
@@ -964,7 +964,7 @@
                       "id": "kWD7Q",
                       "fill": "$text-primary",
                       "content": "Criar Conta",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "600"
                     }
@@ -1025,7 +1025,7 @@
                       "id": "EYYck",
                       "fill": "$text-primary",
                       "content": "Bem-vindo de volta",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 22,
                       "fontWeight": "700"
                     },
@@ -1034,7 +1034,7 @@
                       "id": "OjLZ6",
                       "fill": "$text-secondary",
                       "content": "Entre para continuar planejando",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "normal"
                     }
@@ -1184,7 +1184,7 @@
                   "id": "rkdcC",
                   "fill": "$text-secondary",
                   "content": "Não tem conta? ",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 14,
                   "fontWeight": "normal"
                 },
@@ -1193,7 +1193,7 @@
                   "id": "frKxk",
                   "fill": "$accent-primary",
                   "content": "Criar conta",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 14,
                   "fontWeight": "600"
                 }
@@ -1261,7 +1261,7 @@
                   "id": "ifT6x",
                   "fill": "$text-primary",
                   "content": "Minha Viagem",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 16,
                   "fontWeight": "600"
                 }
@@ -1290,7 +1290,7 @@
                       "id": "QRzoW",
                       "fill": "$text-secondary",
                       "content": "Entrar",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "500"
                     }
@@ -1313,7 +1313,7 @@
                       "id": "o38kc",
                       "fill": "$text-primary",
                       "content": "Criar Conta",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "600"
                     }
@@ -1374,7 +1374,7 @@
                       "id": "fAkzE",
                       "fill": "$text-primary",
                       "content": "Crie sua conta",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 22,
                       "fontWeight": "700"
                     },
@@ -1383,7 +1383,7 @@
                       "id": "i30IC",
                       "fill": "$text-secondary",
                       "content": "Comece a planejar suas aventuras",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "normal"
                     }
@@ -1533,7 +1533,7 @@
                   "id": "px1K5",
                   "fill": "$text-secondary",
                   "content": "Já tem conta? ",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 14,
                   "fontWeight": "normal"
                 },
@@ -1542,7 +1542,7 @@
                   "id": "CiYan",
                   "fill": "$accent-primary",
                   "content": "Entrar",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 14,
                   "fontWeight": "600"
                 }
@@ -1610,7 +1610,7 @@
                   "id": "gRuFy",
                   "fill": "$text-primary",
                   "content": "Minha Viagem",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 16,
                   "fontWeight": "600"
                 }
@@ -1639,7 +1639,7 @@
                       "id": "Ccmil",
                       "fill": "$text-secondary",
                       "content": "Minhas Viagens",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "500"
                     }
@@ -1671,7 +1671,7 @@
                       "id": "t25mA",
                       "fill": "$text-primary",
                       "content": "Nova Viagem",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "600"
                     }
@@ -1682,7 +1682,7 @@
                   "id": "atjAT",
                   "fill": "$text-secondary",
                   "content": "user@email.com",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 14,
                   "fontWeight": "normal"
                 },
@@ -1736,7 +1736,7 @@
                   "id": "Wszlb",
                   "fill": "$text-primary",
                   "content": "Minhas Viagens",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 28,
                   "fontWeight": "700"
                 },
@@ -1765,7 +1765,7 @@
                       "id": "WD7no",
                       "fill": "$text-muted",
                       "content": "Buscar...",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "normal"
                     }
@@ -2226,7 +2226,7 @@
                   "id": "en8ad",
                   "fill": "$text-primary",
                   "content": "Minha Viagem",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 16,
                   "fontWeight": "600"
                 }
@@ -2255,7 +2255,7 @@
                       "id": "CsNL4",
                       "fill": "$text-secondary",
                       "content": "Minhas Viagens",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "500"
                     }
@@ -2287,7 +2287,7 @@
                       "id": "A77jZ",
                       "fill": "$text-primary",
                       "content": "Nova Viagem",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "600"
                     }
@@ -2298,7 +2298,7 @@
                   "id": "j9HE6",
                   "fill": "$text-secondary",
                   "content": "user@email.com",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 14,
                   "fontWeight": "normal"
                 },
@@ -2429,7 +2429,7 @@
                       "id": "jhP3b",
                       "fill": "$text-primary",
                       "content": "Voltar",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 13,
                       "fontWeight": "500"
                     }
@@ -2458,7 +2458,7 @@
                       "id": "iFZoE",
                       "fill": "$text-primary",
                       "content": "Férias em Paris",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 18,
                       "fontWeight": "700"
                     },
@@ -3368,7 +3368,7 @@
                   "id": "rXHYo",
                   "fill": "$text-primary",
                   "content": "Minha Viagem",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 16,
                   "fontWeight": "600"
                 }
@@ -3397,7 +3397,7 @@
                       "id": "VhVUV",
                       "fill": "$text-secondary",
                       "content": "Minhas Viagens",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "500"
                     }
@@ -3429,7 +3429,7 @@
                       "id": "H1S19Z",
                       "fill": "$text-primary",
                       "content": "Nova Viagem",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "600"
                     }
@@ -3440,7 +3440,7 @@
                   "id": "OXjTQ",
                   "fill": "$text-secondary",
                   "content": "user@email.com",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 14,
                   "fontWeight": "normal"
                 },
@@ -3568,7 +3568,7 @@
                       "id": "DBgU3",
                       "fill": "$text-primary",
                       "content": "Novo Local",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 18,
                       "fontWeight": "700"
                     },
@@ -4028,7 +4028,7 @@
                   "id": "oZUx0",
                   "fill": "$text-primary",
                   "content": "Minha Viagem",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 16,
                   "fontWeight": "600"
                 }
@@ -4057,7 +4057,7 @@
                       "id": "sQ71i",
                       "fill": "$text-secondary",
                       "content": "Minhas Viagens",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "500"
                     }
@@ -4089,7 +4089,7 @@
                       "id": "NnX2U",
                       "fill": "$text-primary",
                       "content": "Nova Viagem",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 14,
                       "fontWeight": "600"
                     }
@@ -4100,7 +4100,7 @@
                   "id": "EdFKD",
                   "fill": "$text-secondary",
                   "content": "user@email.com",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 14,
                   "fontWeight": "normal"
                 },
@@ -4162,7 +4162,7 @@
                   "id": "T7BskM",
                   "fill": "$text-primary",
                   "content": "Minhas Viagens",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Montserrat",
                   "fontSize": 28,
                   "fontWeight": "700"
                 }
@@ -4216,7 +4216,7 @@
                       "id": "QDRTy",
                       "fill": "$text-primary",
                       "content": "Nova Viagem",
-                      "fontFamily": "Inter",
+                      "fontFamily": "Montserrat",
                       "fontSize": 18,
                       "fontWeight": "700"
                     },
