@@ -69,9 +69,8 @@ export default function LandingPage() {
               alt="Minha Viagem"
               width={28}
               height={28}
-              className="h-7 w-7"
+              className="h-10 w-10"
             />
-            <span className="text-lg font-bold text-white">Minha Viagem</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href={navLoginHref}>
@@ -90,6 +89,16 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section className="flex flex-col items-center px-6 py-24 text-center">
+        <div className="mb-8 flex items-center justify-center">
+          <Image
+            src="/logo-minha-viagem.png"
+            alt="Minha Viagem Logo"
+            width={300}
+            height={300}
+            className="drop-shadow-2xl shadow-xl bg-transparent rounded-full"
+            priority
+          />
+        </div>
         <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
           Planeje suas viagens de forma inteligente
         </h1>
