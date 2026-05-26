@@ -67,9 +67,8 @@ export default function LandingPage() {
             <Image
               src="/logo-minha-viagem-icone-transparente.png"
               alt="Minha Viagem"
-              width={28}
-              height={28}
-              className="h-10 w-10"
+              width={45}
+              height={45}
             />
           </Link>
           <div className="flex items-center gap-4">
